@@ -85,7 +85,7 @@
           <img src="assets/Menu/Boeuf Bourguignon.jpg" alt="Scouf bourguignon"/>
           <div class="title">BOEUF BOURGUIGNON</div>
           <div class="tags">
-            <span>CARNE</span><span>LENTO</span>
+            <span>CARNE</span><span>LENTO</span><span>PROTEINA</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -117,7 +117,7 @@
           <img src="assets/Menu/Filete wellington.jpg" alt="Filet Wellington"/>
           <div class="title">FILET WELLINGTON</div>
           <div class="tags">
-            <span>CARNE</span><span>RÁPIDO</span>
+            <span>CARNE</span><span>RÁPIDO</span><span>AVANZADO</span><span>PROTEINA</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -147,6 +147,19 @@
       </div>
     </div>
   </div>
+  <script>
+  document.querySelector('#secondSearchBar input').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+
+    document.querySelectorAll('.recipe-card').forEach(card => {
+      const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
+
+      const matches = title.includes(searchValue) || tags.includes(searchValue);
+      card.style.display = matches ? 'block' : 'none';
+    });
+  });
+</script>
   <script>
   document.getElementById('ingrediente').addEventListener('change', function () {
     const selected = this.value.toUpperCase(); // Obtener ingrediente seleccionado
