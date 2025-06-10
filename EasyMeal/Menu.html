@@ -47,14 +47,24 @@
           <input type="text" placeholder="Busqueda Avanzada" />
           <button class="filter-button"></button>
         </div>
-          <select><option>Tiempo</option></select>
+          <select id="tiempo">
+            <option disabled selected hidden>Tiempo</option>
+            <option value="Rápido">Rápido</option>
+            <option value="Moderado">Moderado</option>
+            <option value="Extenso">Lento</option>
+          </select>
           <select>
             <option disabled selected hidden>Nivel</option>
             <option value="Básico">Fácil</option>
             <option value="Intermedio">Intermedio</option>
             <option value="Master Chef">Master Chef</option>
           </select>
-          <select><option>Presupuesto</option></select>
+          <select>
+            <option disabled selected hidden>Presupuesto</option>
+            <option value="Económico">Económico</option>
+            <option value="Estándar">Estándar</option>
+            <option value="Premium">Premium</option>
+          </select>
           <select name="ingrediente" id="ingrediente">
              <option disabled selected hidden>Ingrediente</option>
                 <option value="limon">LIMON</option>
@@ -91,7 +101,7 @@
           <img src="assets/Menu/Paella de mariscos.jpg" alt="Paella mariscos"/>
           <div class="title">PAELLA DE MARISCOS</div>
           <div class="tags">
-            <span>MARISCO</span><span>ARROZ</span>
+            <span>MARISCO</span><span>MODERADO</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -99,7 +109,7 @@
           <img src="assets/Menu/Salmón en costra de hierbas.jpg" alt="Salmón con costra de hierbas"/>
           <div class="title">SALMÓN CON COSTRA DE HIERBAS</div>
           <div class="tags">
-            <span>PESCADO</span><span>HORNO</span>
+            <span>PESCADO</span><span>MODERADO</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -107,7 +117,7 @@
           <img src="assets/Menu/Filete wellington.jpg" alt="Filet Wellington"/>
           <div class="title">FILET WELLINGTON</div>
           <div class="tags">
-            <span>CARNE</span><span>AVANZADO</span>
+            <span>CARNE</span><span>RÁPIDO</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -115,7 +125,7 @@
           <img src="assets/Menu/Opera cake.jpg" alt="Opera Cake"/>
           <div class="title">OPERA CAKE</div>
           <div class="tags">
-            <span>DULCE</span><span>FRANCÉS</span>
+            <span>DULCE</span><span>RÁPIDO</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -123,7 +133,7 @@
           <img src="assets/Menu/Macarons franceses.jpg" alt="Macarons franceses"/>
           <div class="title">MACARONS FRANCESES</div>
           <div class="tags">
-            <span>COLORIDO</span><span>PASTELERÍA</span>
+            <span>RÁPIDO</span><span>PASTELERÍA</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -131,7 +141,7 @@
           <img src="assets/Menu/Tara de crema de limón con merengue.jpg" alt="Tarta de limón con merengue"/>
           <div class="title">TARTA DE LIMÓN CON MERENGUE</div>
           <div class="tags">
-            <span>DULCE</span><span>FÁCIL</span><span>LIMON</span>
+            <span>DULCE</span><span>RÁPIDO</span><span>LIMON</span>
           </div>
         </div>
       </div>
@@ -157,6 +167,20 @@
       const bar = document.getElementById("secondSearchBar");
       // Alternar visibilidad
       bar.style.display = (bar.style.display === "none" || bar.style.display === "") ? "flex" : "none";
+  });
+
+  document.getElementById('tiempo').addEventListener('change', function () {
+    const selectedTime = this.value.toUpperCase(); // Obtener tiempo seleccionado
+    const cards = document.querySelectorAll('.recipe-card');
+
+    cards.forEach(card => {
+      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
+      if (tags.includes(selectedTime)) {
+        card.style.display = 'block'; // Mostrar si incluye RÁPIDO
+      } else {
+        card.style.display = 'none'; // Ocultar si no lo tiene
+      }
+    });
   });
 </script>
 </body>
