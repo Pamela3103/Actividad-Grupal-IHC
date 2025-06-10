@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Restablecer contraseña</title>
+  <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+  <div class="main-container restablecer-container">
+    <div class="background"></div>
+    <div class="background-bg">
+    <div class="login-container foreground">
+      <div class="back-arrow-b">
+        <a href="">
+          <img src="../EasyMeal/assets/arrow-left-solid.svg" alt="back-arrow-b"/>
+        </a>
+      </div>
+      <div class="easymeal-logo">
+        <img src="../EasyMeal/assets/easymeal-logo.png" alt="EasyMeal Logo"/>
+      </div>
+      <div class="logintext">Restablecer contraseña</div>
+      <form class="login-form">
+        <label for="username"><img src="../EasyMeal/assets/user-solid.svg" alt="user-solid"> Nombre de usuario</label>
+        <input type="text" id="username" name="username" placeholder="usuario123" required />
+
+        <label for="password"><img src="../EasyMeal/assets/key-solid.svg" alt="key-solid"> Codigo de seguridad</label>
+        <input id="security-code" name="security-code" placeholder="369" required />
+
+        <label for="password"><img src="../EasyMeal/assets/key-solid.svg" alt="key-solid"> Ingrese contraseña nueva</label>
+        <input type="password" id="password" name="password" placeholder="password123" required />
+
+        <label for="password"><img src="../EasyMeal/assets/key-solid.svg" alt="key-solid"> Repite la contraseña</label>
+        <input type="password" id="password" name="password" placeholder="password123" required />
+
+        <button class="restablecer-form-botton" type="submit">Restablecer contraseña</button>
+      </form>
+    </div>
+  </div>
+  </div>
+</body>
+</html>

@@ -201,5 +201,11 @@ body {
   cursor: pointer;
 }
 
+.restablecer-container {
+  height: 700px;
+}
 
+.resConBut {
+  margin-top: 250px
+}
 /* parte de Bruce FIN */
