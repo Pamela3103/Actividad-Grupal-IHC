@@ -117,16 +117,19 @@ body {
 }
 
 .goto-signup-button {
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  line-height: 40px;
   margin-top: 25px;
   margin-left: 10%;
   margin-right: 10%;
   width: 80%;
   height: 40px;
-  background-color: #BCFF80
-}
-
-.goto-signup-button button {
+  background-color: #BCFF80;
   border-radius: 8px;
+  color: black;
+  font-family: "Poppins-Regular", sans-serif; /* o la que uses */
 }
 
 .goto-signup-button:hover {

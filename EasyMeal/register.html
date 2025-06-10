@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Registro</title>
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="css/Login/styles.css">
 </head>
 <body>
   <div class="main-container">
@@ -13,25 +13,27 @@
     <div class="login-container foreground">
       <div class="back-arrow-b">
         <a href="">
-          <img src="../EasyMeal/assets/arrow-left-solid.svg" alt="back-arrow-b"/>
+          <img src="assets/Login/arrow-left-solid.svg" alt="back-arrow-b"/>
         </a>
       </div>
       <div class="easymeal-logo">
-        <img src="../EasyMeal/assets/easymeal-logo.png" alt="EasyMeal Logo"/>
+        <img src="assets/Login/easymeal-logo.png" alt="EasyMeal Logo"/>
       </div>
       <div class="logintext">Crear cuenta nueva</div>
-      <div class="logintext2">Ya tienes cuenta? <a href="">Inicia sesion</a></div>
+      <div class="logintext2">
+         ¿Ya tienes cuenta? <a href="login.html">Inicia sesión</a>
+      </div>
       <form class="login-form">
-        <label for="username"><img src="../EasyMeal/assets/user-solid.svg" alt="user-solid"> Crea un nombre de usuario</label>
+        <label for="username"><img src="assets/Login/user-solid.svg" alt="user-solid"> Crea un nombre de usuario</label>
         <input type="text" id="username" name="username" placeholder="usuario123" required />
 
-        <label for="password"><img src="../EasyMeal/assets/key-solid.svg" alt="key-solid"> Crea una contraseña</label>
+        <label for="password"><img src="assets/Login/key-solid.svg" alt="key-solid"> Crea una contraseña</label>
         <input type="password" id="password" name="password" placeholder="password123" required />
 
-        <label for="password"><img src="../EasyMeal/assets/key-solid.svg" alt="key-solid"> Repite la contraseña</label>
+        <label for="password"><img src="assets/Login/key-solid.svg" alt="key-solid"> Repite la contraseña</label>
         <input type="password" id="password" name="password" placeholder="password123" required />
 
-        <button type="submit">Crear cuenta</button>
+        <button type="submit" onclick="window.location.href='register-confirmation.html'">Crear cuenta</button>
       </form>
     </div>
   </div>
