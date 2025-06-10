@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyMeal</title>
+  <link rel="stylesheet" href="css/Menu/styles.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+     
+    <div class="sidebar">
+      <div class="menu">
+        <a href="Menu.html">
+         <button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button>
+        </a>
+        <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
+        <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
+        <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
+        <a href="diario.html">
+          <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
+        </a>
+        
+        <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+
+    <div class="content">
+      <div class="logo">
+        <img src="assets/Menu/icons/easymeal_logo.png" alt="EasyMeal Logo">
+        <span>EasyMeal</span>
+        <div class="header-right">
+          <button><img src="assets/Menu/icons/Notificación.png" alt="Notificación"></button>
+          <button><img src="assets/Menu/icons/User.png" alt="Usuario"></button>
+        </div>
+      </div>
+      <div class="header">
+        <div class="search-bar">
+          <input type="text" placeholder="Búsqueda"/>
+          <button class="filter-button"><img src="assets/Menu/icons/Gorra_chef.png" alt=""></button>
+        </div>
+        
+        <div class="filters">
+          <img id="toggleSearch" src="assets/Menu/icons/Filtros.png" style="cursor: pointer;">
+    
+
+        <div id="secondSearchBar" class="search-bar" style="display: none; margin-top: 10px;">
+          <input type="text" placeholder="Busqueda Avanzada" />
+          <button class="filter-button"></button>
+        </div>
+          <select id="tiempo">
+            <option disabled selected hidden>Tiempo</option>
+            <option value="Rápido">Rápido</option>
+            <option value="Moderado">Moderado</option>
+            <option value="Extenso">Lento</option>
+          </select>
+          <select>
+            <option disabled selected hidden>Nivel</option>
+            <option value="Básico">Fácil</option>
+            <option value="Intermedio">Intermedio</option>
+            <option value="Master Chef">Master Chef</option>
+          </select>
+          <select>
+            <option disabled selected hidden>Presupuesto</option>
+            <option value="Económico">Económico</option>
+            <option value="Estándar">Estándar</option>
+            <option value="Premium">Premium</option>
+          </select>
+          <select name="ingrediente" id="ingrediente">
+             <option disabled selected hidden>Ingrediente</option>
+                <option value="limon">LIMON</option>
+                <option value="papa">PAPA</option>
+                <option value="tomates">TOMATE</option>
+                <option value="huevos">HUEVO</option>
+          </select>
+          <button><img src="assets/Menu/icons/Eliminar_filtro.png">Quitar filtros</button>
+        </div>
+       
+      </div>
+
+      <!-- Recipe Cards -->
+       
+      <div class="recipe-grid">
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Boeuf Bourguignon.jpg" alt="Scouf bourguignon"/>
+          <div class="title">BOEUF BOURGUIGNON</div>
+          <div class="tags">
+            <span>CARNE</span><span>LENTO</span><span>PROTEINA</span>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Ramen Tonkotsu.jpg" alt="Ramen tonkotsu"/>
+          <div class="title">RAMEN TONKOTSU</div>
+          <div class="tags">
+            <span>RÁPIDO</span><span>JAPONÉS</span>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Paella de mariscos.jpg" alt="Paella mariscos"/>
+          <div class="title">PAELLA DE MARISCOS</div>
+          <div class="tags">
+            <span>MARISCO</span><span>MODERADO</span>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Salmón en costra de hierbas.jpg" alt="Salmón con costra de hierbas"/>
+          <div class="title">SALMÓN CON COSTRA DE HIERBAS</div>
+          <div class="tags">
+            <span>PESCADO</span><span>MODERADO</span>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Filete wellington.jpg" alt="Filet Wellington"/>
+          <div class="title">FILET WELLINGTON</div>
+          <div class="tags">
+            <span>CARNE</span><span>RÁPIDO</span><span>AVANZADO</span><span>PROTEINA</span>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Opera cake.jpg" alt="Opera Cake"/>
+          <div class="title">OPERA CAKE</div>
+          <div class="tags">
+            <span>DULCE</span><span>RÁPIDO</span>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Macarons franceses.jpg" alt="Macarons franceses"/>
+          <div class="title">MACARONS FRANCESES</div>
+          <div class="tags">
+            <span>RÁPIDO</span><span>PASTELERÍA</span>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <div class="badge">Master Chef</div>
+          <img src="assets/Menu/Tara de crema de limón con merengue.jpg" alt="Tarta de limón con merengue"/>
+          <div class="title">TARTA DE LIMÓN CON MERENGUE</div>
+          <div class="tags">
+            <span>DULCE</span><span>RÁPIDO</span><span>LIMON</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+  document.querySelector('#secondSearchBar input').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+
+    document.querySelectorAll('.recipe-card').forEach(card => {
+      const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
+
+      const matches = title.includes(searchValue) || tags.includes(searchValue);
+      card.style.display = matches ? 'block' : 'none';
+    });
+  });
+</script>
+  <script>
+  document.getElementById('ingrediente').addEventListener('change', function () {
+    const selected = this.value.toUpperCase(); // Obtener ingrediente seleccionado
+    const cards = document.querySelectorAll('.recipe-card');
+
+    cards.forEach(card => {
+      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
+      if (tags.includes(selected)) {
+        card.style.display = 'block'; // Mostrar si tiene el ingrediente
+      } else {
+        card.style.display = 'none'; // Ocultar si no lo tiene
+      }
+    });
+  });
+</script>
+  <script>
+  document.getElementById("toggleSearch").addEventListener("click", function () {
+      const bar = document.getElementById("secondSearchBar");
+      // Alternar visibilidad
+      bar.style.display = (bar.style.display === "none" || bar.style.display === "") ? "flex" : "none";
+  });
+
+  document.getElementById('tiempo').addEventListener('change', function () {
+    const selectedTime = this.value.toUpperCase(); // Obtener tiempo seleccionado
+    const cards = document.querySelectorAll('.recipe-card');
+
+    cards.forEach(card => {
+      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
+      if (tags.includes(selectedTime)) {
+        card.style.display = 'block'; // Mostrar si incluye RÁPIDO
+      } else {
+        card.style.display = 'none'; // Ocultar si no lo tiene
+      }
+    });
+  });
+</script>
+</body>
+</html>

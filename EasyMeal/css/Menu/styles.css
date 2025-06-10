@@ -1,0 +1,255 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90vw;
+  height: 95vh;
+  max-width: 1400px;
+  max-height: 1000px;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 65px;
+  height: 60%;
+  background-color: #A1D572;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 70px;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+.menu img{
+  width: 40px;
+  height: 40px;
+  margin-top: 20px;
+}
+.menu button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+.menu button.active {
+  font-weight: bold;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+}
+
+.header {
+  padding: 10px;
+  margin-top: 31px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  top: 20px;
+  left: 20px;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 1px;
+}
+.header-right button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.header-right img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0;
+  margin-left: 70px;
+}
+
+.search-bar input {
+  padding: 10px 900px;
+  border-radius: 25px;
+  border: 1px solid #db4ec8;
+  font-size: 14px;
+  padding-left: 35px;
+  outline: none;
+}
+.filter-button{
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.filter-button img {
+  width: 70px;
+  height: 70px;
+}
+.filters {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-left: 70px;
+}
+.filters img {
+  width: 30px;
+  height: 30px;
+  margin-right: 50px;
+}
+
+.filters select{
+  padding: 7px 10px;
+  border: 1px solid #ccc;
+  border-radius: 265px;
+  background-color: #D9D9D9;
+  margin-right: 70px;
+}
+.filters button {
+  color: #333;
+  border: none;
+  padding: 7px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.filters button img {
+  width: 12px;
+  height: 12px;
+  margin-right: 9px;
+}
+.filters select:focus{
+  outline: none;
+  border: 1px solid #888888;
+}
+
+.recipe-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+  padding: 30px 30px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.recipe-card {
+  border-radius: 15px;
+  height: 87%;
+  overflow: hidden;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-7px);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #f7f120;
+  padding: 5px 8px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.title {
+  margin: 12px 0 5px;
+  font-weight: bold;
+  font-size: 15px;
+  padding: 0 10px;
+  color: #333;
+}
+
+.tags {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-bottom: 12px;
+}
+
+.tags span {
+  font-size: 12px;
+  color: #666;
+  background: #eee;
+  padding: 3px 8px;
+  border-radius: 15px;
+}
+
+.second-search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0;
+  margin-left: 70px;
+}
+
+.second-search-bar input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.second-search-bar button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}

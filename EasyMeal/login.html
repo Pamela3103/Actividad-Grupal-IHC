@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
-  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="css/Login/styles.css">
 </head>
 <body>
   <div class="main-container">
@@ -13,26 +13,26 @@
     <div class="login-container foreground">
       <div class="back-arrow-b">
         <a href="">
-          <img src="../EasyMeal/assets/arrow-left-solid.svg" alt="back-arrow-b"/>
+          <img src="assets/Login/arrow-left-solid.svg" alt="back-arrow-b"/>
         </a>
       </div>
       <div class="easymeal-logo">
-        <img src="../EasyMeal/assets/easymeal-logo.png" alt="EasyMeal Logo"/>
+        <img src="assets/Login/easymeal-logo.png" alt="EasyMeal Logo"/>
       </div>
       <div class="logintext">Login</div>
-      <div class="logintext2">¿No tienes cuenta? <a href="">Crea una</a></div>
+      <div class="logintext2">¿No tienes cuenta? <a href="register.html">Crea una</a></div>
       <form class="login-form">
-        <label for="username"><img src="../EasyMeal/assets/user-solid.svg" alt="user-solid"> Usuario</label>
+        <label for="username"><img src="assets/Login/user-solid.svg" alt="user-solid"> Usuario</label>
         <input type="text" id="username" name="username" placeholder="usuario123" required />
 
-        <label for="password"><img src="../EasyMeal/assets/key-solid.svg" alt="key-solid"> Contraseña</label>
+        <label for="password"><img src="assets/Login/key-solid.svg" alt="key-solid"> Contraseña</label>
         <input type="password" id="password" name="password" placeholder="password123" required />
 
-        <button type="submit">Iniciar Sesión</button>
+        <button type="submit" onclick="window.location.href='Menu.html'">Iniciar Sesión</button>
       </form>
       <div class="logintext3">¿Olvidaste tu contraseña?</div>
       <div class="logintext4"><a href="">Haz click aqui para restablecerlo</a></div>
-      <button class="goto-signup-button">Crear nueva cuenta</button>
+      <a href="register.html" class="goto-signup-button">Crear nueva cuenta</a>
     </div>
   </div>
   </div>

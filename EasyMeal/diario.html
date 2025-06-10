@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EasyMeal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Salsa&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/diario/styles.css" />
+  
+</head>
+<body>
+  <div class="container">
+
+    <!-- Sidebar -->
+     
+    <div class="sidebar">
+      <div class="menu">
+        <a href="Menu.html">
+         <button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button>
+        </a>
+        <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
+        <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
+        <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
+        <a href="diario.html">
+          <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
+        </a>
+        
+        <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
+      </div>
+    </div>
+
+    <!-- Main content -->
+
+    <div class="content">
+      <div class="logo">
+        <img src="assets/diario//icons/easymeal_logo.png" alt="EasyMeal Logo">
+        <span class="easymeal-title">EasyMeal</span>
+        <div class="header-right">
+          <button><img src="assets/diario/icons/Notificación.png" alt="Notificación"></button>
+          <button><img src="assets/diario/icons/User.png" alt="Usuario"></button>
+        </div>
+      </div>
+      <!-- Header para diario de cocina -->
+    <div class="header diario-header">
+      <div class="title">
+        <span class="main-title">MI DIARIO DE COCINA</span>
+        <button class="add-button">+ Añadir</button>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filters">
+      <img src="assets/diario/icons/Filtros.png" alt="Icono filtro">
+      <select>
+        <option disabled selected hidden>Resultado</option>
+        <option value="Me encantó">Me encantó</option>
+        <option value="Quedó bien">Quedó bien</option>
+        <option value="Aceptable">Aceptable</option>
+        <option value="No me salió">No me salió</option>
+      </select>
+      <select>
+        <option disabled selected hidden>Dificultad</option>
+        <option value="Súper fácil">Súper fácil</option>
+        <option value="Fácil de seguir">Fácil de seguir</option>
+        <option value="Intermedia">Intermedia</option>
+        <option value="Un poco difícil">Un poco difícil</option>
+        <option value="Muy difícil">Muy difícil</option>
+      </select>
+      <select>
+        <option disabled selected hidden>Presentación</option>
+        <option value="Muy bonita">Muy bonita</option>
+        <option value="Bonita">Bonita</option>
+        <option value="Normal">Normal</option>
+        <option value="Podría mejorar">Podría mejorar</option>
+        <option value="Fea">Fea</option>
+      </select>
+      <select>
+        <option disabled selected hidden>Tiempo </option>
+        <option value="Rápido">Rápido</option>
+        <option value="En el tiempo previsto">Regular</option>
+        <option value="Muy demorado">Muy demorado</option>
+      </select>
+      <button><img src="assets/diario/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
+    </div>
+
+
+      <!-- Recipe Cards -->
+      <style>
+      .recipe-card {
+        display: flex;
+        align-items: flex-start;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        padding: 16px;
+        margin-bottom: 20px;
+        max-width: 800px; /* Más ancho */
+        min-width: 500px;
+      }
+      .recipe-card img {
+        width: 140px;
+        height: 140px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-right: 28px;
+      }
+      .recipe-card .recipe-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        flex: 1;
+      }
+      .recipe-card .title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+      .recipe-card .nota {
+        font-size: 1rem;
+        color: #666;
+        margin-bottom: 10px;
+        margin-top: 2px;
+      }
+      .recipe-card .tags {
+        display: flex;
+        gap: 8px;
+      }
+      .recipe-card .tags span {
+        background: #e6f7e6;
+        color: #2e7d32;
+        border-radius: 8px;
+        padding: 4px 10px;
+        font-size: 0.9rem;
+      }
+      .recipe-card .badge {
+        margin-bottom: 8px;
+        background: #e1ea2e;
+        color: #020202;
+        font-size: 0.9rem;
+        font-weight: 500;
+        border-radius: 6px;
+        padding: 2px 10px;
+        display: inline-block;
+      }
+      .recipe-grid {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+      </style>
+      <div class="recipe-grid">
+        <div class="recipe-card">
+          <img src="assets/diario/cheesecake_fresa.png" alt="Cheesecake de Fresa"/>
+          <div class="recipe-content">
+        <div class="badge">Fácil</div>
+        <div class="title">CHEESECAKE DE FRESA</div>
+        <div class="nota">NOTA: Usar menos azúcar en la base y añadir ralladura de limón al relleno.</div>
+        <div class="tags">
+          <span>ME ENCANTÓ</span><span>FÁCIL DE SEGUIR</span> <span>BONITA</span> <span>REGULAR</span>
+        </div>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <img src="assets/diario/galletas.png" alt="Galletas con Chispas"/>
+          <div class="recipe-content">
+        <div class="badge">Fácil</div>
+        <div class="title">GALLETAS CON CHISPAS</div>
+        <div class="nota">NOTA: Probar con chispas oscuras y un poco de sal marina encima.</div>
+        <div class="tags">
+          <span>QUEDÓ BIEN</span><span>SÚPER FÁCIL</span><span>MUY BONITA</span><span>RÁPIDO</span>
+        </div>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <img src="assets/diario/yogurt_granola.jpg" alt="Yogurt con Granola"/>
+          <div class="recipe-content">
+        <div class="badge">Fácil</div>
+        <div class="title">YOGURT CON GRANOLA</div>
+        <div class="nota">NOTA: Tostar la granola con canela para más sabor y textura.</div>
+        <div class="tags">
+          <span>ME ENCANTÓ</span><span>SÚPER FÁCIL</span><span>NORMAL</span><span>RÁPIDO</span>
+        </div>
+          </div>
+        </div>
+        <div class="recipe-card">
+          <img src="assets/diario/batidos_platano.jpg" alt="Batido de Platano"/>
+          <div class="recipe-content">
+        <div class="badge">Fácil</div>
+        <div class="title">BATIDO DE PLATANO</div>
+        <div class="nota">NOTA: Agregar hielo y unas gotas de limón para hacerlo más fresco.</div>
+        <div class="tags">
+          <span>ACEPTABLE</span><span>SÚPER FÁCIL</span><span>NORMAL</span><span>RÁPIDO</span>
+        </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
