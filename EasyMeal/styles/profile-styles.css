@@ -1,0 +1,33 @@
+img {
+    width: 40px;
+}
+
+.top-container {
+    display: flex;
+}
+
+.logo-container {
+    display: inline;
+}
+
+.menu-container {
+    display: inline;
+}
+
+.notifications-container {
+    display: inherit;
+}
+
+.notifications-button-circle {
+    border-radius: 100%;
+    background-color: gray;
+}
+
+.profile-container {
+    display: inherit;
+}
+
+.profile-button-circle {
+    border-radius: 100%;
+    background-color: gray;
+}
