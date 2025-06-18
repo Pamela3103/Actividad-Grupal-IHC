@@ -41,7 +41,7 @@
         <div class="receta-detalle">
           <div class="breadcrumb">
             <a href="#">Home</a> > <a href="#">Almuerzos</a> > Paella
-            <button class="copiar-enlace">📎 Copiar Enlace</button>
+            <button id="btnCopiarEnlace" class="copiar-enlace">📎 Copiar Enlace</button>
           </div>
         </div>
         <div class="imagen-receta">
@@ -92,5 +92,18 @@
        
     </div>
   </div>
+  <script>
+  document.getElementById("btnCopiarEnlace").addEventListener("click", function () {
+    // Puedes personalizar esta URL si tienes una ruta específica
+    const enlace = window.location.href;
+
+    navigator.clipboard.writeText(enlace).then(() => {
+      alert("¡Enlace copiado al portapapeles!");
+    }).catch(err => {
+      alert("Hubo un error al copiar el enlace.");
+      console.error(err);
+    });
+  });
+</script>
 </body>
 </html>
