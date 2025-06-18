@@ -227,6 +227,17 @@
     </div>
     <img class="image-10" src="assets/Landing Page/image-100.png" />
   </div>
-  
+  <script>
+  const button = document.querySelector('.btn-get-started2');
+  const text = button.querySelector('.empieza-ahora');
+
+  button.addEventListener('mouseenter', () => {
+    text.textContent = 'Ir al menú';
+  });
+
+  button.addEventListener('mouseleave', () => {
+    text.textContent = 'Empieza ahora';
+  });
+</script>
 </body>
 </html>
