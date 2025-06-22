@@ -1,0 +1,446 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90vw;
+  height: 95vh;
+  max-width: 1400px;
+  max-height: 1000px;
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 65px;
+  height: 60%;
+  background-color: #A1D572;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  position: relative;
+  margin-top: 70px;
+}
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+.menu img{
+  width: 40px;
+  height: 40px;
+  margin-top: 6px;
+}
+.menu button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  margin: 10px 0;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.menu button.active {
+  font-weight: bold;
+}
+.menu button:hover {
+  color: #eee;
+  background-color: #ff38e4;
+  border-radius: 8px;
+}
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+}
+
+.header {
+  padding: 10px;
+  margin-top: 31px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  top: 20px;
+  left: 20px;
+  gap: 10px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.logo img {
+  width: 40px;
+  height: 40px;
+}
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: absolute;
+  right: 20px;
+  top: 1px;
+}
+.header-right button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.header-right img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin: 10px 0;
+  margin-left: 70px;
+}
+
+.search-bar input {
+  padding: 10px 900px;
+  border-radius: 25px;
+  border: 1px solid #db4ec8;
+  font-size: 14px;
+  padding-left: 35px;
+  outline: none;
+}
+.filter-button{
+  background: none;
+  border: none;
+  font-size: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.filter-button img {
+  width: 70px;
+  height: 70px;
+}
+/**/
+.receta-detalle,
+.imagen-receta,
+.ajuste-porciones,
+.ingredientes,
+.acciones {
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+
+.receta-detalle {
+  padding: 20px;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.copiar-enlace {
+  float: right;
+  font-size: 13px;
+  background: #D9D9D9;
+  padding: 7px;
+  border-radius: 20px;
+  border: none;
+  color: #666;
+  cursor: pointer;
+}
+
+.imagen-receta {
+  width: 88%;
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.imagen-receta img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.info-superpuesta {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 👈 Alinea el texto a la izquierda */
+  gap: 10px; /* Espacio entre elementos */
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+
+.info-superpuesta h1 {
+  margin-top: 50px;
+  font-size: 32px;
+}
+
+.info-superpuesta p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.duracion {
+  font-size: 17px;
+  margin-top: 5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.duracion img {
+  width: 24px;
+}
+
+.badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: gold;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.ajuste-porciones {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.ajuste-porciones button {
+  margin: 10px 10px 0 0;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 20px;
+  background-color: #f4f1c3;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.ajuste-porciones button:hover {
+  background-color: #FEEC37;
+}
+
+.ingredientes h3 {
+  margin-top: 30px;
+  font-size: 20px;
+  color: #2d2d2d;
+}
+
+.ingredientes ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+.ingredientes li {
+  margin: 5px 0;
+}
+
+.acciones {
+  margin-top: 30px;
+}
+
+.acciones button {
+  padding: 10px 20px;
+  margin-right: 15px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.btn-video, .btn-guia {
+  background-color: #ec5b88;
+  color: white;
+}
+
+.btn-video:hover {
+  background-color: #d24472;
+}
+
+
+.btn-guia:hover {
+  background-color: #d24472;
+}
+
+
+/**/
+/*Cambios*/
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-content {
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 50px;
+  width: 60%;
+  text-align: center;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 12px; right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.contenido-modal-flex {
+  display: flex;
+  gap: 20px;
+  text-align: left;
+}
+
+.video-container {
+  flex: 1.2;
+}
+
+.texto-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.texto-container h3 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+
+.paginacion {
+  margin: 20px 0;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot.activo {
+  background-color: #333;
+}
+
+.dot.completado {
+  background-color: #4caf50;
+}
+
+.botones-navegacion {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-nav {
+  padding: 10px 20px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.anterior {
+  background-color: #f6f300;
+}
+
+.siguiente {
+  background-color: #f6f300;
+}
+____
+.pantalla-transicion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.pantalla-transicion img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.5s ease, filter 0.5s ease;
+}
+
+.pantalla-transicion img.visible {
+  opacity: 1;
+  filter: blur(0);
+}
+
+.pantalla-transicion h2 {
+  font-size: 1.6rem;
+  margin: 10px 0 5px;
+}
+
+.pantalla-transicion p {
+  font-size: 1rem;
+  color: #444;
+}
+
+/* Para animación suave al cambiar imagen */
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+.hidden {
+  display: none !important;
+}
+
+
+
+/*Cambios*/
+
+
+
+
+
+
+
