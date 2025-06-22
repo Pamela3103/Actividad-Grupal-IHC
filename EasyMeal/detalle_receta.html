@@ -16,9 +16,16 @@
         <button><img src="assets/Menu/icons/Home.png" alt=""></button>
         <button><img src="assets/Menu/icons/Comida rápida.png" alt=""></button>
         <button><img src="assets/Menu/icons/Calendario.png" alt=""></button>
-        <button><img src="assets/Menu/icons/Favoritos.png" alt=""></button>
-        <button><img src="assets/Menu/icons/Libreto.png" alt=""></button>
-        <button><img src="assets/Menu/icons/Exit.jpg" alt=""></button>
+        <a href="favoritos.html">
+          <button><img src="assets/Menu/icons/Favoritos.png" alt=""></button>
+        </a>
+        <a href="diario.html">
+          <button><img src="assets/Menu/icons/Libreto.png" alt=""></button>
+        </a>
+        <a href="index.html">
+          <button><img src="assets/Menu/icons/Exit.jpg" alt=""></button>
+        </a>
+
       </div>
     </div>
 
@@ -41,7 +48,7 @@
         <div class="receta-detalle">
           <div class="breadcrumb">
             <a href="#">Home</a> > <a href="#">Almuerzos</a> > Paella
-            <button class="copiar-enlace">📎 Copiar Enlace</button>
+            <button id="btnCopiarEnlace" class="copiar-enlace">📎 Copiar Enlace</button>
           </div>
         </div>
         <div class="imagen-receta">
@@ -69,7 +76,7 @@
 
       <div class="ingredientes">
         <h3>Ingredientes:</h3>
-        <ul>
+        <ul id="listaIngredientes">
           <li>300 g de arroz</li>
           <li>800 ml de caldo de pollo/pescado</li>
           <li>250 g de pollo</li>
@@ -85,12 +92,256 @@
 
       <div class="acciones">
         <button class="btn-video">Ver Video Guía</button>
-        <button class="btn-guia">Ver Guía Rápida</button>
+        <button id="btnGuiaRapida" class="btn-guia">Ver Guía Rápida</button>
       </div>
-
-      <!-- Recipe Cards -->
-       
     </div>
-  </div>
-</body>
+    -----
+    <div id="modalGuia" class="modal hidden">
+      <div class="modal-content">
+        <button id="btnCerrarModal" class="close">✕</button>
+
+        <!-- Pantalla de carga -->
+        <div id="pantallaCarga" class="pantalla-transicion hidden">
+          <img id="imgCarga" src="assets/Detalle_Receta/Loading_1.jpg" alt="Cargando" />
+          <h2>Preparando la cocina</h2>
+          <p>Espere un momento</p>
+        </div>
+      
+
+
+        <!-- Pantalla final -->
+        <div id="pantallaFinal" class="pantalla-transicion hidden">
+          <h2>¡Felicidades, lo lograste!</h2>
+          <p>Esperamos que hayas disfrutado el proceso.<br>Buen provecho</p>
+          <button onclick="cerrarPantallaFinal()" class="btn-nav siguiente">Cerrar</button>
+        </div>
+
+        <!-- Contenido de los pasos -->
+        <div id="contenidoModal" class="contenido-modal-flex">
+          <div class="video-container">
+            <video id="videoPaso" controls width="100%">
+              <source id="fuenteVideo" src="assets/pasos/paso1.mp4" type="video/mp4">
+              Tu navegador no soporta el video.
+            </video>
+          </div>
+          <div class="texto-container">
+            <h3 id="tituloPaso">Paso 1</h3>
+            <p id="descripcionPaso">Descripción del paso.</p>
+          </div>
+        </div>
+
+        <div id="paginacion" class="paginacion">
+          <span class="dot activo"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
+        </div>
+
+        <div id="navegacion" class="botones-navegacion">
+          <button id="btnAnterior" class="btn-nav anterior">⬅ Anterior</button>
+          <button id="btnSiguiente" class="btn-nav siguiente">Siguiente ➡</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Se cambio -->
+    <script>
+      document.getElementById("btnCopiarEnlace").addEventListener("click", function () {
+        // Puedes personalizar esta URL si tienes una ruta específica
+        const enlace = window.location.href;
+
+        navigator.clipboard.writeText(enlace).then(() => {
+          alert("¡Enlace copiado al portapapeles!");
+        }).catch(err => {
+          alert("Hubo un error al copiar el enlace.");
+          console.error(err);
+        });
+      });
+    </script>
+    <script>
+      const pasos = [
+        {
+          titulo: "Paso 1: Preparación inicial",
+          descripcion: "Reúne todos los ingredientes y asegúrate de tener todo limpio y a la mano antes de empezar.",
+          video: "assets/Detalle_Receta/videos/PaellaPas_1.mp4"
+        },
+        {
+          titulo: "Paso 2: ¡Hora de sofreír!",
+          descripcion: "Calienta un chorrito de aceite de oliva en la paellera y añade el pollo...",
+          video: "assets/Detalle_Receta/videos/PaellaPas_2.mp4"
+        },
+        {
+          titulo: "Paso 3: Agrega el arroz",
+          descripcion: "Añade el arroz y mézclalo bien con el sofrito...",
+          video: "assets/Detalle_Receta/videos/PaellaPas_3.mp4"
+        },
+        {
+          titulo: "Paso 4: Terminar y servir",
+          descripcion: "Cuando el arroz esté en su punto...",
+          video: "assets/Detalle_Receta/videos/PaellaPas_4.mp4"
+        }
+      ];
+
+      let pasoActual = 0;
+
+      const modal = document.getElementById("modalGuia");
+      const abrirModalBtn = document.getElementById("btnGuiaRapida");
+      const cerrarModalBtn = document.getElementById("btnCerrarModal");
+
+      const videoPaso = document.getElementById("videoPaso");
+      const fuenteVideo = document.getElementById("fuenteVideo");
+      const tituloPaso = document.getElementById("tituloPaso");
+      const descripcionPaso = document.getElementById("descripcionPaso");
+      const dots = document.querySelectorAll(".dot");
+
+      const btnAnterior = document.getElementById("btnAnterior");
+      const btnSiguiente = document.getElementById("btnSiguiente");
+
+      const pantallaCarga = document.getElementById("pantallaCarga");
+      const pantallaFinal = document.getElementById("pantallaFinal");
+      const contenidoModal = document.getElementById("contenidoModal");
+      const paginacion = document.getElementById("paginacion");
+      const navegacion = document.getElementById("navegacion");
+
+      function mostrarPaso(index) {
+        const paso = pasos[index];
+        fuenteVideo.src = paso.video;
+        videoPaso.load();
+        tituloPaso.textContent = paso.titulo;
+        descripcionPaso.textContent = paso.descripcion;
+
+        dots.forEach((dot, i) => {
+          dot.classList.remove("activo", "completado");
+          if (i < index) dot.classList.add("completado");
+          else if (i === index) dot.classList.add("activo");
+        });
+
+        btnAnterior.style.visibility = index === 0 ? "hidden" : "visible";
+        btnSiguiente.textContent = index === pasos.length - 1 ? "Finalizar" : "Siguiente ➡";
+      }
+
+      abrirModalBtn.addEventListener("click", () => {
+      modal.classList.remove("hidden");
+
+      // Oculta todo excepto la pantalla de carga
+      pantallaCarga.classList.remove("hidden");
+      pantallaFinal.classList.add("hidden");
+      contenidoModal.style.display = "none";
+      paginacion.style.display = "none";
+      navegacion.style.display = "none";
+
+      iniciarCargaAnimada();
+        setTimeout(() => {
+          detenerCargaAnimada();
+          pantallaCarga.classList.add("hidden");
+
+          contenidoModal.style.display = "flex";
+          paginacion.style.display = "block";
+          navegacion.style.display = "flex";
+
+          mostrarPaso(pasoActual);
+        }, 8000); // 8 segundos de carga total
+
+      });
+
+      cerrarModalBtn.addEventListener("click", () => {
+        modal.classList.add("hidden");
+        pasoActual = 0;
+        mostrarPaso(pasoActual);
+      });
+
+      btnAnterior.addEventListener("click", () => {
+        if (pasoActual > 0) {
+          pasoActual--;
+          mostrarPaso(pasoActual);
+        }
+      });
+
+      btnSiguiente.addEventListener("click", () => {
+        if (pasoActual < pasos.length - 1) {
+          pasoActual++;
+          mostrarPaso(pasoActual);
+        } else {
+          // Mostrar mensaje final
+          contenidoModal.style.display = "none";
+          paginacion.style.display = "none";
+          navegacion.style.display = "none";
+          pantallaFinal.classList.remove("hidden");
+        }
+      });
+
+      function cerrarPantallaFinal() {
+        modal.classList.add("hidden");
+        pantallaFinal.classList.add("hidden");
+        pasoActual = 0;
+        mostrarPaso(pasoActual);
+      }
+      const imagenesCarga = [
+        "assets/Detalle_Receta/Loading_2.jpg",
+        "assets/Detalle_Receta/Loading_3.jpg",
+        "assets/Detalle_Receta/Loading_4.jpg"
+      ];
+
+      let indexCarga = 0;
+      let intervaloCarga;
+
+      function iniciarCargaAnimada() {
+        const img = document.getElementById("imgCarga");
+        img.classList.add("visible");
+
+        intervaloCarga = setInterval(() => {
+          img.classList.remove("visible");
+
+          setTimeout(() => {
+            indexCarga = (indexCarga + 1) % imagenesCarga.length;
+            img.src = imagenesCarga[indexCarga];
+            void img.offsetWidth; // Reinicia animación
+            img.classList.add("visible");
+          }, 200); // Tiempo de la animación
+        }, 2000); // Total de ciclo (1s fade-out + 2s visible)
+      }
+
+      function detenerCargaAnimada() {
+        clearInterval(intervaloCarga);
+      }
+    </script>
+    <script>
+      const ingredientesBase = [
+        { cantidad: "300", unidad: "g", nombre: "arroz" },
+        { cantidad: "800", unidad: "ml", nombre: "caldo de pollo/pescado" },
+        { cantidad: "250", unidad: "g", nombre: "pollo" },
+        { cantidad: "150", unidad: "g", nombre: "mariscos (calamar, camarones)" },
+        { cantidad: "1", unidad: "", nombre: "pimiento" },
+        { cantidad: "100", unidad: "g", nombre: "chícharos" },
+        { cantidad: "2", unidad: "dientes", nombre: "ajo" },
+        { cantidad: "1", unidad: "", nombre: "tomate triturado" },
+        { cantidad: "", unidad: "", nombre: "Hebras de azafrán o colorante" },
+        { cantidad: "", unidad: "", nombre: "Aceite de oliva, sal al gusto" },
+      ];
+
+      const porciones = {
+        personal: 0.5,
+        familiar: 1,
+        grupal: 2
+      };
+
+      const listaIngredientes = document.getElementById("listaIngredientes");
+
+      function actualizarIngredientes(factor) {
+        listaIngredientes.innerHTML = ingredientesBase.map(ing => {
+          if (!ing.cantidad) return `<li>${ing.nombre}</li>`;
+          let cantidadNum = parseFloat(ing.cantidad);
+          if (isNaN(cantidadNum)) return `<li>${ing.cantidad} ${ing.unidad} ${ing.nombre}</li>`;
+          let nuevaCantidad = Math.round(cantidadNum * factor * 10) / 10;
+          return `<li>${nuevaCantidad} ${ing.unidad} ${ing.nombre}</li>`;
+        }).join("");
+      }
+
+      document.querySelector(".porcion-personal").addEventListener("click", () => actualizarIngredientes(porciones.personal));
+      document.querySelector(".porcion-familiar").addEventListener("click", () => actualizarIngredientes(porciones.familiar));
+      document.querySelector(".porcion-grupo").addEventListener("click", () => actualizarIngredientes(porciones.grupal));
+    </script>
+  </body>
 </html>
+
