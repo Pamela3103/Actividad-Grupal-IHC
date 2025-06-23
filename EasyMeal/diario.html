@@ -135,14 +135,14 @@
     <!-- Filtros -->
     <div class="filters">
       <img src="assets/diario/icons/Filtros.png" alt="Icono filtro">
-      <select>
+      <select id="filtro-resultado">
         <option disabled selected hidden>Resultado</option>
         <option value="Me encantó">Me encantó</option>
         <option value="Quedó bien">Quedó bien</option>
         <option value="Aceptable">Aceptable</option>
         <option value="No me salió">No me salió</option>
       </select>
-      <select>
+      <select id="filtro-dificultad">
         <option disabled selected hidden>Dificultad</option>
         <option value="Súper fácil">Súper fácil</option>
         <option value="Fácil de seguir">Fácil de seguir</option>
@@ -150,7 +150,7 @@
         <option value="Un poco difícil">Un poco difícil</option>
         <option value="Muy difícil">Muy difícil</option>
       </select>
-      <select>
+      <select id="filtro-presentacion">
         <option disabled selected hidden>Presentación</option>
         <option value="Muy bonita">Muy bonita</option>
         <option value="Bonita">Bonita</option>
@@ -158,13 +158,13 @@
         <option value="Podría mejorar">Podría mejorar</option>
         <option value="Fea">Fea</option>
       </select>
-      <select>
+      <select id="filtro-tiempo">
         <option disabled selected hidden>Tiempo </option>
         <option value="Rápido">Rápido</option>
         <option value="En el tiempo previsto">Regular</option>
         <option value="Muy demorado">Muy demorado</option>
       </select>
-      <button><img src="assets/diario/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
+      <button id="quitar-filtros"><img src="assets/diario/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
     </div>
 
 
@@ -335,6 +335,7 @@
       }
     });
 
+    //EVENTOS AL GUARDAR LA RECETA
     document.getElementById("form-receta").addEventListener("submit", function (e) {
       e.preventDefault(); // Prevenir que se recargue la página
 
@@ -394,6 +395,44 @@
       } else {
         alert("Por favor selecciona una imagen");
       }
+    });
+
+    // Filtros
+    function filtrarPorUnSoloFiltro(idFiltro) {
+      const valorSeleccionado = document.getElementById(idFiltro).value.toUpperCase();
+      const tarjetas = document.querySelectorAll('.recipe-card');
+
+      tarjetas.forEach(card => {
+        const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
+        const coincide = tags.includes(valorSeleccionado);
+        card.style.display = coincide ? 'flex' : 'none';
+      });
+    }
+
+    document.getElementById("filtro-resultado").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-resultado");
+    });
+
+    document.getElementById("filtro-dificultad").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-dificultad");
+    });
+
+    document.getElementById("filtro-presentacion").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-presentacion");
+    });
+
+    document.getElementById("filtro-tiempo").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-tiempo");
+    });
+
+    // Botón para quitar filtros y mostrar todo
+    document.getElementById("quitar-filtros").addEventListener("click", () => {
+      document.querySelectorAll("select").forEach(select => {
+        select.selectedIndex = 0;
+      });
+      document.querySelectorAll('.recipe-card').forEach(card => {
+        card.style.display = 'flex';
+      });
     });
 
   </script>
