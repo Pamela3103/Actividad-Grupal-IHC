@@ -129,6 +129,9 @@
           </div>
         </div>
       </div>
+        <p id="no-results" style="display: none; grid-column: 1 / -1; text-align: center; font-weight: bold; margin-top: 20px;">
+          No se encontraron recetas que coincidan con los filtros seleccionados.
+        </p>
     </div>
   </div>
   <script>
@@ -144,6 +147,7 @@
           card.style.display = 'none'; // Ocultar si no lo tiene
         }
       });
+      verificarCoincidencias();
     });
   </script>
   <script>
@@ -152,7 +156,16 @@
       document.querySelectorAll('.recipe-card').forEach(card => {
         card.style.display = 'block';
       });
+      verificarCoincidencias();
     });
+  </script>
+  <script>
+    function verificarCoincidencias() {
+      const cards = document.querySelectorAll('.recipe-card');
+      const visibles = Array.from(cards).filter(card => card.style.display !== 'none');
+      const mensaje = document.getElementById('no-results');
+      mensaje.style.display = visibles.length === 0 ? 'block' : 'none';
+    }
   </script>
 
 
