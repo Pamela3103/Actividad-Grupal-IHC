@@ -43,87 +43,327 @@
         <div class="filters">
           <img src="assets/Menu/icons/Filtros.png" alt="Filtros">
           <select><option>Tiempo</option></select>
-          <select>
+          <select id="nivelFiltro">
             <option disabled selected hidden>Nivel</option>
-            <option value="Básico">Pricipiante</option>
+            <option value="Principiante">Principiante</option>
             <option value="Intermedio">Intermedio</option>
             <option value="Master Chef">Master Chef</option>
           </select>
           <select><option>Presupuesto</option></select>
           <select><option>Ingrediente</option></select>
-          <button><img src="assets/Menu/icons/Eliminar_filtro.png">Quitar filtros</button>
+          <button id="quitarFiltros">
+            <img src="assets/Menu/icons/Eliminar_filtro.png">Quitar filtros
+          </button>
         </div>
       </div>
 
       <!-- Recipe Cards -->
        
       <div class="recipe-grid">
-        <div class="recipe-card">
+
+        <!-- Receta Marster Chef -->
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Boeuf Bourguignon.jpg" alt="Scouf bourguignon"/>
+          <button class="image-button" onclick="console.log('BOEUF BOURGUIGNON')">
+            <img src="assets/Nivel_Experiencia/images/Boeuf Bourguignon.jpg" alt="Scouf bourguignon"/>
+          </button>
           <div class="title">BOEUF BOURGUIGNON</div>
           <div class="tags">
             <span>CARNE</span><span>MASTER CHEF</span>
           </div>
         </div>
-        <div class="recipe-card">
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Ramen Tonkotsu.jpg" alt="Ramen tonkotsu"/>
+          <button class="image-button" onclick="console.log('Ramen Tonkotsu')">
+            <img src="assets/Nivel_Experiencia/images/Ramen Tonkotsu.jpg" alt="Ramen tonkotsu"/>
+          </button>
           <div class="title">RAMEN TONKOTSU</div>
           <div class="tags">
             <span>JAPONÉS</span><span>MASTER CHEF</span>
           </div>
         </div>
-        <div class="recipe-card">
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Paella de mariscos.jpg" alt="Paella mariscos"/>
+          <a href="detalle_receta.html" class="image-button" onclick="console.log('Paella de mariscos')">
+            <img src="assets/Nivel_Experiencia/images/Paella de mariscos.jpg" alt="Paella de mariscos"/>
+          </a>
           <div class="title">PAELLA DE MARISCOS</div>
           <div class="tags">
             <span>MARISCO</span><span>MASTER CHEF</span>
           </div>
         </div>
-        <div class="recipe-card">
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Salmón en costra de hierbas.jpg" alt="Salmón con costra de hierbas"/>
+          <button class="image-button" onclick="console.log('Salmón con costra de hierbas')">
+            <img src="assets/Nivel_Experiencia/images/Salmón en costra de hierbas.jpg" alt="Salmón con costra de hierbas"/>
+          </button>
           <div class="title">SALMÓN CON COSTRA DE HIERBAS</div>
           <div class="tags">
             <span>PESCADO</span><span>MASTER CHEF</span>
           </div>
         </div>
-        <div class="recipe-card">
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Filete wellington.jpg" alt="Filet Wellington"/>
+          <button class="image-button" onclick="console.log('Filete Wellington')">
+            <img src="assets/Nivel_Experiencia/images/Filete wellington.jpg" alt="Filet Wellington"/>
+          </button>
           <div class="title">FILET WELLINGTON</div>
           <div class="tags">
             <span>CARNE</span><span>MASTER CHEF</span>
           </div>
         </div>
-        <div class="recipe-card">
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Opera cake.jpg" alt="Opera Cake"/>
+          <button class="image-button" onclick="console.log('Tarta tatin')">
+            <img src="assets/Nivel_Experiencia/images/Opera cake.jpg" alt="Opera Cake"/>
+          </button>
           <div class="title">OPERA CAKE</div>
           <div class="tags">
             <span>DULCE</span><span>MASTER CHEF</span>
           </div>
         </div>
-        <div class="recipe-card">
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Macarons franceses.jpg" alt="Macarons franceses"/>
+          <button class ="image-button" onclick="console.log('Macarons franceses')">
+            <img src="assets/Nivel_Experiencia/images/Macarons franceses.jpg" alt="Macarons franceses"/>
+          </button>
           <div class="title">MACARONS FRANCESES</div>
           <div class="tags">
             <span>COLORIDO</span><span>MASTER CHEF</span>
           </div>
         </div>
-        <div class="recipe-card">
+        <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Nivel_Experiencia/images/Tara de crema de limón con merengue.jpg" alt="Tarta de limón con merengue"/>
+          <button class="image-button" onclick="console.log('Tarta de crema de limón con merengue')">
+            <img src="assets/Nivel_Experiencia/images/Tara de crema de limón con merengue.jpg" alt="Tarta de limón con merengue"/>
+          </button>
           <div class="title">TARTA DE LIMÓN CON MERENGUE</div>
           <div class="tags">
             <span>DULCE</span><span>MASTER CHEF</span>
           </div>
         </div>
+
+        <!-- Receta Principiante -->
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Pan ajo')">
+            <img src="assets/Nivel_Experiencia/images/Pan_ajo.jpg" alt="Tarta de limón con merengue"/>
+          </button>
+          <div class="title">PAN DE AJO</div>
+          <div class="tags">
+            <span>APERITIVO</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Brochetas de pollo')">
+            <img src="assets/Nivel_Experiencia/images/Brochetas_pollo.jpg" alt="Brochetas de pollo"/>
+          </button>
+          <div class="title">BROCHETAS DE POLLO</div>
+          <div class="tags">
+            <span>POLLO</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Pasta con salsa')">
+            <img src="assets/Nivel_Experiencia/images/Pasta_con_salsa_tomate.jpeg" alt="Pasta con salsa"/>
+          </button>
+          <div class="title">PASTA CON SALSA</div>
+          <div class="tags">
+            <span>PASTA</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Sandwich de atun')">
+            <img src="assets/Nivel_Experiencia/images/Sandwich_atun.jpg" alt="Sandwich de atun"/>
+          </button>
+          <div class="title">SANDWICH DE ATÚN</div>
+          <div class="tags">
+            <span>ATÚN</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Huevos con salsa tomate')">
+            <img src="assets/Nivel_Experiencia/images/Huevos_con_tomate.jpeg" alt="Huevos con salsa tomate"/>
+          </button>
+          <div class="title">HUEVOS CON SALSA DE TOMATE</div>
+          <div class="tags">
+            <span>HUEVO</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Banana con avena y miel')">
+            <img src="assets/Nivel_Experiencia/images/Banan_con_avenaymiel.jpg" alt="Banana con avena y miel"/>
+          </button>
+          <div class="title">BANANA CON AVENA Y MIEL</div>
+          <div class="tags">
+            <span>DESAYUNO</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Salchichas salteadas')">
+            <img src="assets/Nivel_Experiencia/images/Salchichas_salteadas.jpg" alt="Salchichas salteadas"/>
+          </button>
+          <div class="title">SALCHICHAS SALTEADAS</div>
+          <div class="tags">
+            <span>CARNE</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Principiante">
+          <div class="badge">Principiante</div>
+          <button class="image-button" onclick="console.log('Tostadas con palta y huevo')">
+            <img src="assets/Nivel_Experiencia/images/Tostadas_palta y huevo.jpg" alt="Tostadas con palta y huevo"/>
+          </button>
+          <div class="title">TOSTADAS CON PALTA Y HUEVO</div>
+          <div class="tags">
+            <span>HUEVO</span><span>PRINCIPIANTE</span>
+          </div>
+        </div>
+        <!-- Receta Intermedio-->
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Tortilla de papas')">
+            <img src="assets/Nivel_Experiencia/images/Tortilla_papas.jpg" alt="Tortilla de papas"/>
+          </button>
+          <div class="title">TORTILLA DE PAPAS</div>
+          <div class="tags">
+            <span>HUEVO</span><span>INTERMEDIO</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Lomo salteado')">
+            <img src="assets/Nivel_Experiencia/images/Lomo_salteado.jpg" alt="Lomo salteado"/>
+          </button>
+          <div class="title">LOMO SALTEADO</div>
+          <div class="tags">
+            <span>CARNE</span><span>INTERMEDIO</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Pollo salteado con verduras')">
+            <img src="assets/Nivel_Experiencia/images/Pollo_salteado_verduras.jpg" alt="Pollo salteado con verduras"/>
+          </button>
+          <div class="title">POLLO SALTEADO CON VERDURAS</div>
+          <div class="tags">
+            <span>POLLO</span><span>INTERMEDIO</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Panqueques de avena')">
+            <img src="assets/Nivel_Experiencia/images/Panqueques.jpg" alt="Panqueques de avena"/>
+          </button>
+          <div class="title">PANQUEQUES DE AVENA</div>
+          <div class="tags">
+            <span>DESAYUNO</span><span>INTERMEDIO</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Fideos con huancaína')">
+            <img src="assets/Nivel_Experiencia/images/Fideos__con_huancaina.jpg" alt="Fideos con huancaína"/>
+          </button>
+          <div class="title">FIDEOS CON HUANCAÍNA</div>
+          <div class="tags">
+            <span>PASTA</span><span>INTERMEDIO</span>
+          </div>
+        </div>
+        
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Chaufa de pollo')">
+            <img src="assets/Nivel_Experiencia/images/Chaufa_pollo.jpg" alt="Chaufa de pollo"/>
+          </button>
+          <div class="title">CHAUFA DE POLLO</div>
+          <div class="tags">
+            <span>ARROZ</span><span>INTERMEDIO</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Croquetas de papa y queso')">
+            <img src="assets/Nivel_Experiencia/images/Croquetas_papa_queso.jpg" alt="Croquetas de papa y queso"/>
+          </button>
+          <div class="title">CROQUETAS DE PAPA Y QUESO</div>
+          <div class="tags">
+            <span>APERITIVO</span><span>INTERMEDIO</span>
+          </div>
+        </div>
+        <div class="recipe-card" data-nivel="Intermedio">
+          <div class="badge">Intermedio</div>
+          <button class="image-button" onclick="console.log('Pizza con pan pita')">
+            <img src="assets/Nivel_Experiencia/images/Pizza_pan_pita.jpg" alt="Pizza con"/>
+          </button>
+          <div class="title">PIZZA CON PAN PITA</div>
+          <div class="tags">
+            <span>ITALIANA</span><span>INTERMEDIO</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+  <script>
+    document.getElementById("nivelFiltro").addEventListener("change", function () {
+    const nivelSeleccionado = this.value;
+    const tarjetas = document.querySelectorAll(".recipe-card");
+
+    tarjetas.forEach(tarjeta => {
+      const nivel = tarjeta.getAttribute("data-nivel");
+      if (nivel === nivelSeleccionado || nivelSeleccionado === "") {
+        tarjeta.style.display = "block";
+      } else {
+        tarjeta.style.display = "none";
+      }
+    });
+  });
+  </script>
+  <script>
+    // Función para desordenar recetas
+    function desordenarRecetas() {
+      const grid = document.querySelector('.recipe-grid');
+      const recetas = Array.from(grid.children);
+
+      recetas.sort(() => Math.random() - 0.5);
+
+      grid.innerHTML = '';
+      recetas.forEach(receta => {
+        receta.style.display = 'block'; // asegurarse de que estén visibles
+        grid.appendChild(receta);
+      });
+    }
+
+    // Ejecutar al cargar
+    window.addEventListener('DOMContentLoaded', () => {
+      desordenarRecetas();
+
+      // Activar filtro de nivel
+      document.getElementById("nivelFiltro").addEventListener("change", function () {
+        const nivelSeleccionado = this.value;
+        const tarjetas = document.querySelectorAll(".recipe-card");
+
+        tarjetas.forEach(tarjeta => {
+          const nivel = tarjeta.getAttribute("data-nivel");
+          if (nivel === nivelSeleccionado) {
+            tarjeta.style.display = "block";
+          } else {
+            tarjeta.style.display = "none";
+          }
+        });
+      });
+
+      // Activar botón "Quitar filtros"
+      document.getElementById('quitarFiltros').addEventListener('click', function () {
+        document.getElementById('nivelFiltro').selectedIndex = 0;
+        desordenarRecetas();
+      });
+    });
+  </script>
 </body>
 </html>
