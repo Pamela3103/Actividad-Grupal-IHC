@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>EasyMeal - Editar Perfil</title>
+  <link rel="stylesheet" href="../EasyMeal/styles/profilestyle.css">
+</head>
+<body>
+  <div class="sidebar">
+    <div class="logo"><img src="assets/easymeal_logo.png" alt="easy meal logo png"><span><img class="logo-text" src="assets/EasyMeal.svg" alt="easy meal svg"></span></div>
+    <nav class="nav-icons">
+      <img src="assets/house-solid.svg" alt="house svg">
+      <img src="assets/bolt-solid.svg" alt="bolt svg">
+      <img src="assets/calendar-solid.svg" alt="calendar svg">
+      <img src="assets/heart-solid.svg" alt="heart svg">
+      <img src="assets/bookmark-solid.svg" alt="bookmark svg">
+    </nav>
+    <div class="logout"><img src="assets/right-from-bracket-solid.svg" alt="exit arrow svg"></div>
+  </div>
+
+  <div class="main-content">
+    <div class="top-bar">
+      <span class="bell"><img src="assets/bell-solid.svg" alt="bell svg"></span>
+      <span class="profile-icon"><img src="assets/Login/user-solid.svg" alt="user icon svg"></span>
+    </div>
+
+    <h2>Editar perfil:</h2>
+
+    <div class="profile-container">
+      <div class="left-form">
+        <div class="avatar">
+          <img src="assets/image-solid.svg" alt="avatar">
+          <p>&lt;Nombre de usuario&gt;</p>
+        </div>
+
+        <label>Edad: <input type="number" placeholder="&lt;int&gt;"></label>
+        <label>Sexo: <input type="text" placeholder="&lt;bool&gt;"></label>
+        <label>Ocupación: <input type="text" placeholder="&lt;bool&gt;"></label>
+        <label>País: <input type="text" placeholder="&lt;string list&gt;"></label>
+        <label>Código de seguridad: <input type="number" placeholder="&lt;número&gt;"></label>
+      </div>
+
+      <div class="bio-section">
+        <label for="bio">Biografía:</label>
+        <textarea id="bio" placeholder="&lt;texto&gt;"></textarea>
+      </div>
+    </div>
+
+    <button class="save-btn">Guardar cambios</button>
+  </div>
+</body>
+</html>
