@@ -1,7 +1,10 @@
-# 🍽️ Proyecto: Aplicación Web de Recetas
-
-Este proyecto es una aplicación web que permite a los usuarios llevar un **diario de cocina**, **filtrar recetas por duración** y recibir **recomendaciones personalizadas**. Fue desarrollado como parte de un trabajo en equipo, siguiendo la metodología ágil Scrum, utilizando herramientas modernas de desarrollo web.
-
+🍽️ Proyecto: Aplicación Web de Recetas
+Este proyecto consiste en una aplicación web interactiva que permite a los usuarios:
+- Llevar un diario de cocina con notas personalizadas.
+- Filtrar recetas por duración, ingredientes, presupuesto y nivel de dificultad.
+- Recibir recomendaciones personalizadas según su historial.
+- Acceder a una sección de favoritos para guardar sus recetas preferidas.
+El desarrollo se realizó en equipo aplicando la metodología ágil Scrum, utilizando herramientas modernas de desarrollo web y buenas prácticas de diseño centrado en el usuario.
 
 ## 🛠️ Tecnologías utilizadas
 
@@ -16,7 +19,7 @@ Este proyecto es una aplicación web que permite a los usuarios llevar un **diar
   
 ## ✅ Estado del proyecto
 
-✔️ Maquetado completo – Todas las vistas han sido estructuradas siguiendo los diseños en Figma y adaptadas para diferentes resoluciones.
-✔️ Funcionalidades principales implementadas – Se incluyen filtros por duración, recomendaciones personalizadas y el registro de recetas en el diario de cocina.
-✔️ Eventos interactivos integrados – Se han desarrollado y probado los eventos principales como selección de filtros, botones de añadir, editar y eliminar recetas.
+- ✔️ Maquetado completo – Todas las vistas han sido estructuradas siguiendo los diseños en Figma y adaptadas para diferentes resoluciones.
+- ✔️ Funcionalidades principales implementadas – Se incluyen filtros por duración, recomendaciones personalizadas y el registro de recetas en el diario de cocina.
+- ✔️ Eventos interactivos integrados – Se han desarrollado y probado los eventos principales como selección de filtros, botones de añadir, editar y eliminar recetas.
 
