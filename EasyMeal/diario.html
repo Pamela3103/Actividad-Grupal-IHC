@@ -287,6 +287,23 @@
     <button type="button" onclick="document.getElementById('formulario').style.display='none'">Cancelar</button>
   </form>
 </div>
+  <div id="notificacion" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #d4edda;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+  ">
+    ✓ Registro añadido exitosamente
+  </div>
+
   <script>
 
     const modal = document.getElementById("modal");
@@ -381,7 +398,8 @@
         `;
 
         const contenedor = document.querySelector(".recipe-grid");
-        contenedor.insertAdjacentHTML("beforeend", recetaHTML);
+        contenedor.insertAdjacentHTML("afterbegin", recetaHTML);
+        mostrarNotificacion(); // Mostrar notificación de éxito
 
         // Cierra el modal y limpia el formulario
         modal.style.display = "none";
@@ -396,6 +414,15 @@
         alert("Por favor selecciona una imagen");
       }
     });
+    function mostrarNotificacion() {
+      const notif = document.getElementById("notificacion");
+      notif.style.display = "block";
+      
+      // Ocultar después de 3 segundos
+      setTimeout(() => {
+        notif.style.display = "none";
+      }, 3000);
+    }
 
     // Filtros
     function filtrarPorUnSoloFiltro(idFiltro) {
