@@ -77,7 +77,7 @@
                 <option value="tomates">TOMATE</option>
                 <option value="huevos">HUEVO</option>
           </select>
-          <button><img src="assets/Menu/icons/Eliminar_filtro.png">Quitar filtros</button>
+          <button id="quitar-filtros"><img src="assets/Menu/icons/Eliminar_filtro.png">Quitar filtros</button>
         </div>
        
       </div>
@@ -150,8 +150,12 @@
           </div>
         </div>
       </div>
+        <p id="no-results" style="display: none; text-align: center; font-weight: bold; margin-top: 20px;">
+          No se encontraron recetas que coincidan con los filtros seleccionados.
+        </p>
     </div>
   </div>
+
   <script>
   document.querySelector('#secondSearchBar input').addEventListener('input', function () {
     const searchValue = this.value.toLowerCase();
@@ -199,7 +203,28 @@
         card.style.display = 'none'; // Ocultar si no lo tiene
       }
     });
+    verificarCoincidencias(); // Verificar si hay coincidencias después de aplicar el filtro
   });
 </script>
+<script>// Botón para quitar filtros y mostrar todo
+    document.getElementById("quitar-filtros").addEventListener("click", () => {
+      document.querySelectorAll("select").forEach(select => {
+        select.selectedIndex = 0;
+      });
+      document.querySelectorAll('.recipe-card').forEach(card => {
+        card.style.display = 'block'; // Mostrar todas las tarjetas
+      });
+      verificarCoincidencias();
+    });
+  </script>
+  <script>
+  function verificarCoincidencias() {
+    const cards = document.querySelectorAll('.recipe-card');
+    const visibles = Array.from(cards).filter(card => card.style.display !== 'none');
+    const mensaje = document.getElementById('no-results');
+    mensaje.style.display = visibles.length === 0 ? 'block' : 'none';
+  }
+</script>
+
 </body>
 </html>
