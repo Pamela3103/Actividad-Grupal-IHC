@@ -18,12 +18,15 @@
         </a>
         <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
         <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
-        <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
+        <a href="favoritos.html">
+          <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
+        </a>
         <a href="diario.html">
           <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
         </a>
-        
-        <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
+        <a href="index.html"></a>
+          <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
+        </a>
       </div>
     </div>
 
@@ -40,7 +43,7 @@
       </div>
       <div class="header">
         <div class="search-bar">
-          <input type="text" placeholder="Búsqueda"/>
+          <input type="text" id="titleSearch" placeholder="Búsqueda" />
           <button class="filter-button"><img src="assets/Menu/icons/Gorra_chef.png" alt=""></button>
         </div>
         
@@ -101,12 +104,14 @@
             <span>RÁPIDO</span><span>JAPONÉS</span>
           </div>
         </div>
-        <div class="recipe-card">
+         <div class="recipe-card" data-nivel="Master Chef">
           <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Paella de mariscos.jpg" alt="Paella mariscos"/>
+          <a href="detalle_receta.html" class="image-button" onclick="console.log('Paella de mariscos')">
+            <img src="assets/Nivel_Experiencia/images/Paella de mariscos.jpg" alt="Paella de mariscos"/>
+          </a>
           <div class="title">PAELLA DE MARISCOS</div>
           <div class="tags">
-            <span>MARISCO</span><span>MODERADO</span>
+            <span>MARISCO</span><span>MASTER CHEF</span>
           </div>
         </div>
         <div class="recipe-card">
@@ -169,6 +174,7 @@
     });
   });
 </script>
+
   <script>
   document.getElementById('ingrediente').addEventListener('change', function () {
     const selected = this.value.toUpperCase(); // Obtener ingrediente seleccionado
@@ -224,6 +230,18 @@
     const mensaje = document.getElementById('no-results');
     mensaje.style.display = visibles.length === 0 ? 'block' : 'none';
   }
+</script>
+<script>
+  document.querySelector('#titleSearch').addEventListener('input', function () {
+    const searchValue = this.value.toLowerCase();
+
+    document.querySelectorAll('.recipe-card').forEach(card => {
+      const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+
+      const matches = title.includes(searchValue);
+      card.style.display = matches ? 'block' : 'none';
+    });
+  });
 </script>
 
 </body>
