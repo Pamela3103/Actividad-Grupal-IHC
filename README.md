@@ -1,9 +1,10 @@
-🍽️ Proyecto: Aplicación Web de Recetas
+## 🍽️ Proyecto: Aplicación Web de Recetas
 Este proyecto consiste en una aplicación web interactiva que permite a los usuarios:
 - Llevar un diario de cocina con notas personalizadas.
 - Filtrar recetas por duración, ingredientes, presupuesto y nivel de dificultad.
 - Recibir recomendaciones personalizadas según su historial.
 - Acceder a una sección de favoritos para guardar sus recetas preferidas.
+  
 El desarrollo se realizó en equipo aplicando la metodología ágil Scrum, utilizando herramientas modernas de desarrollo web y buenas prácticas de diseño centrado en el usuario.
 
 ## 🛠️ Tecnologías utilizadas
