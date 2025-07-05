@@ -6,25 +6,106 @@
   <title>EasyMeal</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Salsa&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/diario/styles.css" />
-  
 </head>
 <body>
-  <div class="container">
+  <div id="modal">
+    <div id="modal-content">
+      <h3>Nueva receta</h3>
+      <form id="form-receta" enctype="multipart/form-data">
+        <div class="form-columns">
+          <!-- Columna 1 -->
+          <div class="col col1">
+            <label for="imagen">Foto de la receta:</label>
+            <input type="file" id="imagen" accept="image/*">
+            <img id="preview" src="#" alt="Vista previa" style="display: none; width: 100%; border-radius: 10px; margin-top: 10px;" />
+            <label for="nivel">Nivel de la receta:</label>
+            <select id="nivel" required>
+              <option disabled selected hidden>Selecciona un nivel</option>
+              <option value="Fácil">Fácil</option>
+              <option value="Intermedio">Intermedio</option>
+              <option value="Master Chef">Master Chef</option>
+            </select>
 
+          </div>
+
+          <!-- Columna 2 -->
+          <div class="col col2">
+            <label for="titulo">Título de la receta:</label>
+            <textarea id="titulo" placeholder="Título de la receta"  required></textarea>
+
+            <label for="nota">Nota o comentario:</label>
+            <textarea id="nota" placeholder="Nota o comentario" rows="4" required></textarea>
+          </div>
+
+          <!-- Columna 3 -->
+          <div class="col col3 opciones">
+            <label for="resultado">Resultado:</label>
+            <select id="resultado" required>
+              <option disabled selected hidden>Selecciona una opción</option>
+              <option value="Me encantó">Me encantó</option>
+              <option value="Quedó bien">Quedó bien</option>
+              <option value="Aceptable">Aceptable</option>
+              <option value="No me salió">No me salió</option>
+            </select>
+
+            <label for="dificultad">Dificultad:</label>
+            <select id="dificultad" required>
+              <option disabled selected hidden>Selecciona una opción</option>
+              <option value="Súper fácil">Súper fácil</option>
+              <option value="Fácil de seguir">Fácil de seguir</option>
+              <option value="Intermedia">Intermedia</option>
+              <option value="Un poco difícil">Un poco difícil</option>
+              <option value="Muy difícil">Muy difícil</option>
+            </select>
+
+            <label for="presentacion">Presentación:</label>
+            <select id="presentacion" required>
+              <option disabled selected hidden>Selecciona una opción</option>
+              <option value="Muy bonita">Muy bonita</option>
+              <option value="Bonita">Bonita</option>
+              <option value="Normal">Normal</option>
+              <option value="Podría mejorar">Podría mejorar</option>
+            </select>
+
+            <label for="tiempo">Tiempo:</label>
+            <select id="tiempo" required>
+              <option disabled selected hidden>Selecciona una opción</option>
+              <option value="Rápido">Rápido</option>
+              <option value="Regular">Regular</option>
+              <option value="Muy demorado">Muy demorado</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Botones -->
+        <div style="text-align: right; margin-top: 20px;">
+          <button type="button" class="cancelar" onclick="cerrarModal()">Cancelar</button>
+          <button type="submit" class="guardar">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
+  <div id="confirm-modal" class="confirm-modal">
+    <div class="confirm-content">
+      <p>¿Estás seguro de que quieres salir? Se perderán los cambios.</p>
+      <div class="confirm-buttons">
+        <button id="confirm-yes">Sí, salir</button>
+        <button id="confirm-no">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
     <!-- Sidebar -->
      
     <div class="sidebar">
       <div class="menu">
-        <a href="Menu.html">
-         <button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button>
-        </a>
+        <button><img src="assets/diario/icons/Home.png" alt=""></button>
         <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
         <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
         <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
-        <a href="diario.html">
-          <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
-        </a>
-        
+        <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
         <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
       </div>
     </div>
@@ -33,7 +114,7 @@
 
     <div class="content">
       <div class="logo">
-        <img src="assets/diario//icons/easymeal_logo.png" alt="EasyMeal Logo">
+        <img src="assets/diario/icons/easymeal_logo.png" alt="EasyMeal Logo">
         <span class="easymeal-title">EasyMeal</span>
         <div class="header-right">
           <button><img src="assets/diario/icons/Notificación.png" alt="Notificación"></button>
@@ -51,14 +132,14 @@
     <!-- Filtros -->
     <div class="filters">
       <img src="assets/diario/icons/Filtros.png" alt="Icono filtro">
-      <select>
+      <select id="filtro-resultado">
         <option disabled selected hidden>Resultado</option>
         <option value="Me encantó">Me encantó</option>
         <option value="Quedó bien">Quedó bien</option>
         <option value="Aceptable">Aceptable</option>
         <option value="No me salió">No me salió</option>
       </select>
-      <select>
+      <select id="filtro-dificultad">
         <option disabled selected hidden>Dificultad</option>
         <option value="Súper fácil">Súper fácil</option>
         <option value="Fácil de seguir">Fácil de seguir</option>
@@ -66,21 +147,20 @@
         <option value="Un poco difícil">Un poco difícil</option>
         <option value="Muy difícil">Muy difícil</option>
       </select>
-      <select>
+      <select id="filtro-presentacion">
         <option disabled selected hidden>Presentación</option>
         <option value="Muy bonita">Muy bonita</option>
         <option value="Bonita">Bonita</option>
         <option value="Normal">Normal</option>
         <option value="Podría mejorar">Podría mejorar</option>
-        <option value="Fea">Fea</option>
       </select>
-      <select>
+      <select id="filtro-tiempo">
         <option disabled selected hidden>Tiempo </option>
         <option value="Rápido">Rápido</option>
-        <option value="En el tiempo previsto">Regular</option>
+        <option value="Regular">Regular</option>
         <option value="Muy demorado">Muy demorado</option>
       </select>
-      <button><img src="assets/diario/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
+      <button id="quitar-filtros"><img src="assets/diario/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
     </div>
 
 
@@ -152,12 +232,17 @@
         <div class="recipe-card">
           <img src="assets/diario/cheesecake_fresa.png" alt="Cheesecake de Fresa"/>
           <div class="recipe-content">
+
         <div class="badge">Fácil</div>
         <div class="title">CHEESECAKE DE FRESA</div>
         <div class="nota">NOTA: Usar menos azúcar en la base y añadir ralladura de limón al relleno.</div>
         <div class="tags">
           <span>ME ENCANTÓ</span><span>FÁCIL DE SEGUIR</span> <span>BONITA</span> <span>REGULAR</span>
         </div>
+          </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
           </div>
         </div>
         <div class="recipe-card">
@@ -170,6 +255,10 @@
           <span>QUEDÓ BIEN</span><span>SÚPER FÁCIL</span><span>MUY BONITA</span><span>RÁPIDO</span>
         </div>
           </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
+          </div>
         </div>
         <div class="recipe-card">
           <img src="assets/diario/yogurt_granola.jpg" alt="Yogurt con Granola"/>
@@ -180,6 +269,10 @@
         <div class="tags">
           <span>ME ENCANTÓ</span><span>SÚPER FÁCIL</span><span>NORMAL</span><span>RÁPIDO</span>
         </div>
+          </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
           </div>
         </div>
         <div class="recipe-card">
@@ -192,7 +285,294 @@
           <span>ACEPTABLE</span><span>SÚPER FÁCIL</span><span>NORMAL</span><span>RÁPIDO</span>
         </div>
           </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
+          </div>
         </div>
       </div>
+    <div id="formulario">
+  <h3>Agregar Receta</h3>
+  <form>
+    <input type="text" placeholder="Título de la receta" required>
+    <textarea placeholder="Nota o comentario" rows="4" required></textarea>
+    <button type="submit">Guardar</button>
+    <button type="button" onclick="document.getElementById('formulario').style.display='none'">Cancelar</button>
+  </form>
+</div>
+  <div id="notificacion" style="
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+  ">
+    ✓ Registro añadido exitosamente
+  </div>
+
+  <script>
+    let recetaEditando = null;
+
+    const modal = document.getElementById("modal");
+    const botonAbrir = document.querySelector(".add-button");
+    const formulario = document.querySelector("#modal-content form");
+
+    botonAbrir.addEventListener("click", () => {
+      formulario.reset(); // Limpiar campos
+      const preview = document.getElementById("preview");
+      if (preview) preview.style.display = "none"; // Ocultar imagen si estaba cargada
+      modal.style.display = "flex"; // Mostrar modal
+    });
+
+
+    function cerrarModal() {
+      document.getElementById("confirm-modal").style.display = "flex";
+    }
+
+    // Botones del modal de confirmación
+    document.getElementById("confirm-yes").addEventListener("click", () => {
+      document.getElementById("modal").style.display = "none";
+      document.getElementById("confirm-modal").style.display = "none";
+    });
+
+    document.getElementById("confirm-no").addEventListener("click", () => {
+      document.getElementById("confirm-modal").style.display = "none";
+    });
+
+
+
+    // También permite cerrar al hacer clic fuera del modal
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        cerrarModal();
+      }
+    });
+
+    const inputImagen = document.getElementById("imagen");
+    const preview = document.getElementById("preview");
+
+    inputImagen.addEventListener("change", () => {
+      const file = inputImagen.files[0];
+      if (file) {
+        preview.src = URL.createObjectURL(file);
+        preview.style.display = "block";
+      }
+    });
+
+    //EVENTOS AL GUARDAR LA RECETA
+    document.getElementById("form-receta").addEventListener("submit", function (e) {
+      e.preventDefault(); // Prevenir que se recargue la página
+
+      const titulo = document.getElementById("titulo").value;
+      const nota = document.getElementById("nota").value;
+      const nivel = document.getElementById("nivel").value;
+      const resultado = document.getElementById("resultado").value;
+      const dificultad = document.getElementById("dificultad").value;
+      const presentacion = document.getElementById("presentacion").value;
+      const tiempo = document.getElementById("tiempo").value;
+      const imagenInput = document.getElementById("imagen");
+      const imagenArchivo = imagenInput.files[0];
+
+      if (
+        resultado === "Selecciona una opción" ||
+        dificultad === "Selecciona una opción" ||
+        presentacion === "Selecciona una opción" ||
+        tiempo === "Selecciona una opción" ||
+        nivel === "Selecciona un nivel"
+      ) {
+        alert("Por favor, completa todos los campos antes de guardar.");
+        return; // No continúa si falta algo
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+      if (recetaEditando) {
+        // Actualizar la card existente
+        recetaEditando.querySelector("img").src = event.target.result;
+        recetaEditando.querySelector(".badge").textContent = nivel;
+        recetaEditando.querySelector(".title").textContent = titulo.toUpperCase();
+        recetaEditando.querySelector(".nota").textContent = "NOTA: " + nota;
+        recetaEditando.querySelector(".tags").innerHTML = `
+          <span>${resultado.toUpperCase()}</span>
+          <span>${dificultad.toUpperCase()}</span>
+          <span>${presentacion.toUpperCase()}</span>
+          <span>${tiempo.toUpperCase()}</span>
+        `;
+
+        mostrarNotificacion();
+        recetaEditando = null; // Limpiar estado de edición
+
+      } else {
+        // Crear nueva receta
+        const recetaHTML = `
+          <div class="recipe-card">
+            <img src="${event.target.result}" alt="${titulo}" />
+            <div class="recipe-content">
+              <div class="badge">${nivel}</div>
+              <div class="title">${titulo.toUpperCase()}</div>
+              <div class="nota">NOTA: ${nota}</div>
+              <div class="tags">
+                <span>${resultado.toUpperCase()}</span>
+                <span>${dificultad.toUpperCase()}</span>
+                <span>${presentacion.toUpperCase()}</span>
+                <span>${tiempo.toUpperCase()}</span>
+              </div>
+            </div>
+            <div class="card-actions">
+              <button class="editar-btn">✏️</button>
+              <button class="eliminar-btn">🗑️</button>
+            </div>
+          </div>
+        `;
+
+        const contenedor = document.querySelector(".recipe-grid");
+        contenedor.insertAdjacentHTML("afterbegin", recetaHTML);
+        mostrarNotificacion();
+      }
+
+      // Cierre y limpieza del modal (en ambos casos)
+      modal.style.display = "none";
+      document.getElementById("form-receta").reset();
+      const preview = document.getElementById("preview");
+      if (preview) preview.style.display = "none";
+    };
+
+
+      if (imagenArchivo || recetaEditando) {
+        if (imagenArchivo) {
+          reader.readAsDataURL(imagenArchivo);
+        } else {
+          // Si se está editando y no hay nueva imagen, usar la actual
+          const imgExistente = recetaEditando.querySelector("img").src;
+
+          // Simular evento onload manualmente
+          reader.onload({
+            target: { result: imgExistente }
+          });
+        }
+      } else {
+        alert("Por favor selecciona una imagen");
+      }
+
+    });
+    function mostrarNotificacion() {
+      const notif = document.getElementById("notificacion");
+      notif.style.display = "block";
+      
+      // Ocultar después de 3 segundos
+      setTimeout(() => {
+        notif.style.display = "none";
+      }, 3000);
+    }
+
+    // Filtros
+    function filtrarPorUnSoloFiltro(idFiltro) {
+      const valorSeleccionado = document.getElementById(idFiltro).value.toUpperCase();
+      const tarjetas = document.querySelectorAll('.recipe-card');
+
+      tarjetas.forEach(card => {
+        const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
+        const coincide = tags.includes(valorSeleccionado);
+        card.style.display = coincide ? 'flex' : 'none';
+      });
+    }
+
+
+    document.getElementById("filtro-resultado").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-resultado");
+    });
+
+    document.getElementById("filtro-dificultad").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-dificultad");
+    });
+
+    document.getElementById("filtro-presentacion").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-presentacion");
+    });
+
+    document.getElementById("filtro-tiempo").addEventListener("change", () => {
+      filtrarPorUnSoloFiltro("filtro-tiempo");
+    });
+
+    // Botón para quitar filtros y mostrar todo
+    document.getElementById("quitar-filtros").addEventListener("click", () => {
+      document.querySelectorAll("select").forEach(select => {
+        select.selectedIndex = 0;
+      });
+      document.querySelectorAll('.recipe-card').forEach(card => {
+        card.style.display = 'flex';
+      });
+    });
+
+    /// Delegación de eventos para botones eliminar
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("eliminar-btn")) {
+        const card = e.target.closest(".recipe-card");
+        if (confirm("¿Deseas eliminar esta receta?")) {
+          card.remove();
+        }
+      }
+    });
+
+    // Escuchar clics en botones de editar (delegado para futuras recetas también)
+    document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("editar-btn")) {
+      const card = e.target.closest(".recipe-card");
+      recetaEditando = card;
+
+      // Obtener los valores desde la card
+      const titulo = card.querySelector(".title").textContent;
+      const nota = card.querySelector(".nota").textContent.replace("NOTA: ", "");
+      const nivel = card.querySelector(".badge").textContent;
+      const etiquetas = Array.from(card.querySelectorAll(".tags span")).map(span => span.textContent);
+      const imagenSrc = card.querySelector("img").src;
+      document.getElementById("titulo").value = titulo;
+      document.getElementById("nota").value = nota;
+      document.getElementById("nivel").value = nivel;
+
+
+      // Setear valores en el formulario
+      // Función para encontrar el valor original del select que coincida (ignorando mayúsculas/tildes)
+      function asignarValorNormalizado(idSelect, valorTag) {
+        const select = document.getElementById(idSelect);
+        for (const option of select.options) {
+          if (option.value.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") ===
+              valorTag.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) {
+            select.value = option.value;
+            break;
+          }
+        }
+      }
+
+      asignarValorNormalizado("resultado", etiquetas[0]);
+      asignarValorNormalizado("dificultad", etiquetas[1]);
+      asignarValorNormalizado("presentacion", etiquetas[2]);
+      asignarValorNormalizado("tiempo", etiquetas[3]);
+
+
+      // Mostrar imagen previa (aunque input file no se puede setear por seguridad)
+      const preview = document.getElementById("preview");
+      preview.src = imagenSrc;
+      preview.style.display = "block";
+
+      // Mostrar el modal
+      modal.style.display = "flex";
+    }
+  });
+
+
+
+  </script>
 </body>
+
 </html>
+
+
