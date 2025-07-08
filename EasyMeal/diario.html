@@ -6,6 +6,7 @@
   <title>EasyMeal</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Salsa&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/diario/styles.css" />
+
 </head>
 <body>
   <div id="modal">
@@ -65,13 +66,21 @@
               <option value="Bonita">Bonita</option>
               <option value="Normal">Normal</option>
               <option value="Podría mejorar">Podría mejorar</option>
+<<<<<<< HEAD
+=======
+              <option value="Fea">Fea</option>
+>>>>>>> 8411fe316a699ba528cbdc2fc68f055451c3711f
             </select>
 
             <label for="tiempo">Tiempo:</label>
             <select id="tiempo" required>
               <option disabled selected hidden>Selecciona una opción</option>
               <option value="Rápido">Rápido</option>
+<<<<<<< HEAD
               <option value="Regular">Regular</option>
+=======
+              <option value="En el tiempo previsto">En el tiempo previsto</option>
+>>>>>>> 8411fe316a699ba528cbdc2fc68f055451c3711f
               <option value="Muy demorado">Muy demorado</option>
             </select>
           </div>
@@ -104,9 +113,21 @@
         <button><img src="assets/diario/icons/Home.png" alt=""></button>
         <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
         <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
+<<<<<<< HEAD
         <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
         <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
         <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
+=======
+        <a href="favoritos.html">
+          <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
+        </a>
+        <a href="diario.html">
+          <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
+        </a>
+        <a href="index.html"></a>
+          <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
+        </a>
+>>>>>>> 8411fe316a699ba528cbdc2fc68f055451c3711f
       </div>
     </div>
 
@@ -318,6 +339,7 @@
   </div>
 
   <script>
+
     let recetaEditando = null;
 
     const modal = document.getElementById("modal");
@@ -394,6 +416,7 @@
       const reader = new FileReader();
 
       reader.onload = function (event) {
+
       if (recetaEditando) {
         // Actualizar la card existente
         recetaEditando.querySelector("img").src = event.target.result;
@@ -432,6 +455,7 @@
             </div>
           </div>
         `;
+
 
         const contenedor = document.querySelector(".recipe-grid");
         contenedor.insertAdjacentHTML("afterbegin", recetaHTML);
@@ -516,7 +540,7 @@
     document.addEventListener("click", function (e) {
       if (e.target.classList.contains("eliminar-btn")) {
         const card = e.target.closest(".recipe-card");
-        if (confirm("¿Deseas eliminar esta receta?")) {
+        if (confirm("¿Deseas eliminar este registro?")) {
           card.remove();
         }
       }
@@ -567,8 +591,6 @@
       modal.style.display = "flex";
     }
   });
-
-
 
   </script>
 </body>

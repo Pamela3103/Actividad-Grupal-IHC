@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EasyMeal</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Salsa&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/recomendaciones/styles.css" />
   
 </head>
 <body>
@@ -15,12 +15,12 @@
      
     <div class="sidebar">
       <div class="menu">
-        <button><img src="images/icons/Home.png" alt=""></button>
-        <button><img src="images/icons/Comida rápida.png" alt=""></button>
-        <button><img src="images/icons/Calendario.png" alt=""></button>
-        <button><img src="images/icons/Favoritos.png" alt=""></button>
-        <button><img src="images/icons/Libreto.png" alt=""></button>
-        <button><img src="images/icons/Exit.jpg" alt=""></button>
+        <button><img src="assets/recomendaciones/icons/Home.png" alt=""></button>
+        <button><img src="assets/recomendaciones/icons/Comida rápida.png" alt=""></button>
+        <button><img src="assets/recomendaciones/icons/Calendario.png" alt=""></button>
+        <button><img src="assets/recomendaciones/icons/Favoritos.png" alt=""></button>
+        <button><img src="assets/recomendaciones/icons/Libreto.png" alt=""></button>
+        <button><img src="assets/recomendaciones/icons/Exit.jpg" alt=""></button>
       </div>
     </div>
 
@@ -28,17 +28,17 @@
 
     <div class="content">
       <div class="logo">
-        <img src="images/icons/easymeal_logo.png" alt="EasyMeal Logo">
+        <img src="assets/recomendaciones/icons/easymeal_logo.png" alt="EasyMeal Logo">
         <span class="easymeal-title">EasyMeal</span>
         <div class="header-right">
-          <button><img src="images/icons/Notificación.png" alt="Notificación"></button>
-          <button><img src="images/icons/User.png" alt="Usuario"></button>
+          <button><img src="assets/recomendaciones/icons/Notificación.png" alt="Notificación"></button>
+          <button><img src="assets/recomendaciones/icons/User.png" alt="Usuario"></button>
         </div>
       </div>
       <!-- Header para recomendaciones -->
     <div class="header recommended-header">
       <div class="recommended-title">
-        <img src="images/icons/estrellas.png" alt="Estrellas">
+        <img src="assets/recomendaciones/icons/estrellas.png" alt="Estrellas">
         <span class="main-title">RECOMENDADO PARA TI</span>
       </div>
       <div class="subtitle-box">
@@ -48,8 +48,8 @@
 
     <!-- Filtros -->
     <div class="filters">
-      <img src="images/icons/Filtros.png" alt="Icono filtro">
-      <select>
+      <img src="assets/recomendaciones/icons/Filtros.png" alt="Icono filtro">
+      <select id="filtro-categoria">
         <option disabled selected hidden>Categoría</option>
         <option value="Desayuno">Desayuno</option>
         <option value="Almuerzo">Almuerzo</option>
@@ -57,7 +57,7 @@
         <option value="Postre">Postre</option>
         <option value="Snack">Snack</option>
       </select>
-      <button><img src="images/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
+      <button id="quitar-filtros"><img src="assets/recomendaciones/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
     </div>
 
 
@@ -66,70 +66,108 @@
       <div class="recipe-grid">
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/cheesecake_fresa.png" alt="Cheesecake de Fresa"/>
+          <img src="assets/recomendaciones/cheesecake_fresa.png" alt="Cheesecake de Fresa"/>
           <div class="title">CHEESECAKE DE FRESA</div>
           <div class="tags">
-            <span>DULCE</span><span>RÁPIDO</span>
+            <span>DULCE</span><span>RÁPIDO</span><span>POSTRE</span>
           </div>
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/galletas.png" alt="Galletas con Chispas"/>
+          <img src="assets/recomendaciones/galletas.png" alt="Galletas con Chispas"/>
           <div class="title">GALLETAS CON CHISPAS</div>
           <div class="tags">
-            <span class="rapido">DULCE</span><span>RÁPIDO</span>
+            <span class="rapido">DULCE</span><span>RÁPIDO</span><span>POSTRE</span>
           </div>
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/yogurt_granola.jpg" alt="Yogurt con Granola"/>
+          <img src="assets/recomendaciones/yogurt_granola.jpg" alt="Yogurt con Granola"/>
           <div class="title">YOGURT CON GRANOLA</div>
           <div class="tags">
-            <span>DULCE</span><span class="rapido">RÁPIDO</span>
+            <span>DULCE</span><span class="rapido">RÁPIDO</span><span>SNACK</span>
           </div>
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/tostadas_francesas.png" alt="Tostadas Francesas"/>
+          <img src="assets/recomendaciones/tostadas_francesas.png" alt="Tostadas Francesas"/>
           <div class="title">TOSTADAS FRANCESAS</div>
           <div class="tags">
-            <span>DULCE</span><span class="rapido">RÁPIDO</span>
+            <span>DULCE</span><span class="rapido">RÁPIDO</span><span>DESAYUNO</span>
           </div>
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/mug_cake.png" alt="Mugcake con Chispas"/>
+          <img src="assets/recomendaciones/mug_cake.png" alt="Mugcake con Chispas"/>
           <div class="title">MUGCAKE DE VAINILLA CON CHISPAS</div>
           <div class="tags">
-            <span>DULCE</span><span class="rapido">RÁPIDO</span>
+            <span>DULCE</span><span class="rapido">RÁPIDO</span><span>POSTRE</span>
           </div>
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/crepes_nutella.png" alt="Crepes con Nutella"/>
+          <img src="assets/recomendaciones/crepes_nutella.png" alt="Crepes con Nutella"/>
           <div class="title">CREPES CON NUTELLA Y FRESAS</div>
           <div class="tags">
-            <span>DULCE</span><span class="rapido">RÁPIDO</span>
+            <span>DULCE</span><span class="rapido">RÁPIDO</span><span>POSTRE</span>
           </div>
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/barras_avena.png" alt="Barras de Avena"/>
+          <img src="assets/recomendaciones/barras_avena.png" alt="Barras de Avena"/>
           <div class="title">BARRAS DE AVENA</div>
           <div class="tags">
-            <span>DULCE</span><span class="rapido">RÁPIDO</span>
+            <span>DULCE</span><span class="rapido">RÁPIDO</span><span>SNACK</span>
           </div>
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="images/batidos_platano.jpg" alt="Batido de Platano"/>
+          <img src="assets/recomendaciones/batidos_platano.jpg" alt="Batido de Platano"/>
           <div class="title">BATIDO DE PLATANO</div>
           <div class="tags">
-            <span>DULCE</span><span class="rapido">RÁPIDO</span>
+            <span>DULCE</span><span class="rapido">RÁPIDO</span><span>DESAYUNO</span>
           </div>
         </div>
       </div>
+        <p id="no-results" style="display: none; grid-column: 1 / -1; text-align: center; font-weight: bold; margin-top: 20px;">
+          No se encontraron recetas que coincidan con los filtros seleccionados.
+        </p>
     </div>
   </div>
+  <script>
+    document.getElementById("filtro-categoria").addEventListener("change", function () {
+      const categoriaSeleccionada = this.value.toUpperCase();
+      const tarjetas = document.querySelectorAll('.recipe-card');
+
+      tarjetas.forEach(card => {
+        const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
+        if (tags.includes(categoriaSeleccionada)) {
+          card.style.display = 'block'; // Mostrar si incluye RÁPIDO
+        } else {
+          card.style.display = 'none'; // Ocultar si no lo tiene
+        }
+      });
+      verificarCoincidencias();
+    });
+  </script>
+  <script>
+    document.getElementById("quitar-filtros").addEventListener("click", () => {
+      document.getElementById("filtro-categoria").selectedIndex = 0;
+      document.querySelectorAll('.recipe-card').forEach(card => {
+        card.style.display = 'block';
+      });
+      verificarCoincidencias();
+    });
+  </script>
+  <script>
+    function verificarCoincidencias() {
+      const cards = document.querySelectorAll('.recipe-card');
+      const visibles = Array.from(cards).filter(card => card.style.display !== 'none');
+      const mensaje = document.getElementById('no-results');
+      mensaje.style.display = visibles.length === 0 ? 'block' : 'none';
+    }
+  </script>
+
+
 </body>
 </html>

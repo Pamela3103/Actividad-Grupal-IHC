@@ -450,6 +450,7 @@ input[type="file"] {
 
 #confirm-no {
   background-color: #ccc;
+<<<<<<< HEAD
 }
 /*Opciones de borrar y editar*/
 .card-actions {
@@ -472,3 +473,6 @@ input[type="file"] {
   transform: scale(1.2);
 }
 
+=======
+}
+>>>>>>> 8411fe316a699ba528cbdc2fc68f055451c3711f
