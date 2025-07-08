@@ -205,6 +205,28 @@ body {
   height: 700px;
 }
 
+.restablecer-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.restablecer-form img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.restablecer-form input {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 60%;
+}
+
 .resConBut {
   margin-top: 250px
 }
