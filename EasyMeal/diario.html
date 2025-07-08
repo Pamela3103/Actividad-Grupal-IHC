@@ -6,8 +6,7 @@
   <title>EasyMeal</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Salsa&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/diario/styles.css" />
-  
- 
+
 </head>
 <body>
   <div id="modal">
@@ -67,14 +66,21 @@
               <option value="Bonita">Bonita</option>
               <option value="Normal">Normal</option>
               <option value="Podría mejorar">Podría mejorar</option>
+<<<<<<< HEAD
+=======
               <option value="Fea">Fea</option>
+>>>>>>> 8411fe316a699ba528cbdc2fc68f055451c3711f
             </select>
 
             <label for="tiempo">Tiempo:</label>
             <select id="tiempo" required>
               <option disabled selected hidden>Selecciona una opción</option>
               <option value="Rápido">Rápido</option>
+<<<<<<< HEAD
+              <option value="Regular">Regular</option>
+=======
               <option value="En el tiempo previsto">En el tiempo previsto</option>
+>>>>>>> 8411fe316a699ba528cbdc2fc68f055451c3711f
               <option value="Muy demorado">Muy demorado</option>
             </select>
           </div>
@@ -104,11 +110,14 @@
      
     <div class="sidebar">
       <div class="menu">
-        <a href="Menu.html">
-         <button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button>
-        </a>
+        <button><img src="assets/diario/icons/Home.png" alt=""></button>
         <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
         <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
+<<<<<<< HEAD
+        <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
+        <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
+        <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
+=======
         <a href="favoritos.html">
           <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
         </a>
@@ -118,6 +127,7 @@
         <a href="index.html"></a>
           <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
         </a>
+>>>>>>> 8411fe316a699ba528cbdc2fc68f055451c3711f
       </div>
     </div>
 
@@ -164,12 +174,11 @@
         <option value="Bonita">Bonita</option>
         <option value="Normal">Normal</option>
         <option value="Podría mejorar">Podría mejorar</option>
-        <option value="Fea">Fea</option>
       </select>
       <select id="filtro-tiempo">
         <option disabled selected hidden>Tiempo </option>
         <option value="Rápido">Rápido</option>
-        <option value="En el tiempo previsto">Regular</option>
+        <option value="Regular">Regular</option>
         <option value="Muy demorado">Muy demorado</option>
       </select>
       <button id="quitar-filtros"><img src="assets/diario/icons/Eliminar_filtro.png" alt=""> Quitar filtros</button>
@@ -244,12 +253,17 @@
         <div class="recipe-card">
           <img src="assets/diario/cheesecake_fresa.png" alt="Cheesecake de Fresa"/>
           <div class="recipe-content">
+
         <div class="badge">Fácil</div>
         <div class="title">CHEESECAKE DE FRESA</div>
         <div class="nota">NOTA: Usar menos azúcar en la base y añadir ralladura de limón al relleno.</div>
         <div class="tags">
           <span>ME ENCANTÓ</span><span>FÁCIL DE SEGUIR</span> <span>BONITA</span> <span>REGULAR</span>
         </div>
+          </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
           </div>
         </div>
         <div class="recipe-card">
@@ -262,6 +276,10 @@
           <span>QUEDÓ BIEN</span><span>SÚPER FÁCIL</span><span>MUY BONITA</span><span>RÁPIDO</span>
         </div>
           </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
+          </div>
         </div>
         <div class="recipe-card">
           <img src="assets/diario/yogurt_granola.jpg" alt="Yogurt con Granola"/>
@@ -273,6 +291,10 @@
           <span>ME ENCANTÓ</span><span>SÚPER FÁCIL</span><span>NORMAL</span><span>RÁPIDO</span>
         </div>
           </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
+          </div>
         </div>
         <div class="recipe-card">
           <img src="assets/diario/batidos_platano.jpg" alt="Batido de Platano"/>
@@ -283,6 +305,10 @@
         <div class="tags">
           <span>ACEPTABLE</span><span>SÚPER FÁCIL</span><span>NORMAL</span><span>RÁPIDO</span>
         </div>
+          </div>
+          <div class="card-actions">
+            <button class="editar-btn">✏️</button>
+            <button class="eliminar-btn">🗑️</button>
           </div>
         </div>
       </div>
@@ -299,7 +325,7 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #d4edda;
+    background-color: #4CAF50;
     color: white;
     padding: 12px 18px;
     border-radius: 8px;
@@ -313,6 +339,8 @@
   </div>
 
   <script>
+
+    let recetaEditando = null;
 
     const modal = document.getElementById("modal");
     const botonAbrir = document.querySelector(".add-button");
@@ -388,6 +416,25 @@
       const reader = new FileReader();
 
       reader.onload = function (event) {
+
+      if (recetaEditando) {
+        // Actualizar la card existente
+        recetaEditando.querySelector("img").src = event.target.result;
+        recetaEditando.querySelector(".badge").textContent = nivel;
+        recetaEditando.querySelector(".title").textContent = titulo.toUpperCase();
+        recetaEditando.querySelector(".nota").textContent = "NOTA: " + nota;
+        recetaEditando.querySelector(".tags").innerHTML = `
+          <span>${resultado.toUpperCase()}</span>
+          <span>${dificultad.toUpperCase()}</span>
+          <span>${presentacion.toUpperCase()}</span>
+          <span>${tiempo.toUpperCase()}</span>
+        `;
+
+        mostrarNotificacion();
+        recetaEditando = null; // Limpiar estado de edición
+
+      } else {
+        // Crear nueva receta
         const recetaHTML = `
           <div class="recipe-card">
             <img src="${event.target.result}" alt="${titulo}" />
@@ -402,25 +449,43 @@
                 <span>${tiempo.toUpperCase()}</span>
               </div>
             </div>
+            <div class="card-actions">
+              <button class="editar-btn">✏️</button>
+              <button class="eliminar-btn">🗑️</button>
+            </div>
           </div>
         `;
 
+
         const contenedor = document.querySelector(".recipe-grid");
         contenedor.insertAdjacentHTML("afterbegin", recetaHTML);
-        mostrarNotificacion(); // Mostrar notificación de éxito
+        mostrarNotificacion();
+      }
 
-        // Cierra el modal y limpia el formulario
-        modal.style.display = "none";
-        document.getElementById("form-receta").reset();
-        const preview = document.getElementById("preview");
-        if (preview) preview.style.display = "none";
-      };
+      // Cierre y limpieza del modal (en ambos casos)
+      modal.style.display = "none";
+      document.getElementById("form-receta").reset();
+      const preview = document.getElementById("preview");
+      if (preview) preview.style.display = "none";
+    };
 
-      if (imagenArchivo) {
-        reader.readAsDataURL(imagenArchivo); // Carga imagen
+
+      if (imagenArchivo || recetaEditando) {
+        if (imagenArchivo) {
+          reader.readAsDataURL(imagenArchivo);
+        } else {
+          // Si se está editando y no hay nueva imagen, usar la actual
+          const imgExistente = recetaEditando.querySelector("img").src;
+
+          // Simular evento onload manualmente
+          reader.onload({
+            target: { result: imgExistente }
+          });
+        }
       } else {
         alert("Por favor selecciona una imagen");
       }
+
     });
     function mostrarNotificacion() {
       const notif = document.getElementById("notificacion");
@@ -443,6 +508,7 @@
         card.style.display = coincide ? 'flex' : 'none';
       });
     }
+
 
     document.getElementById("filtro-resultado").addEventListener("change", () => {
       filtrarPorUnSoloFiltro("filtro-resultado");
@@ -469,6 +535,62 @@
         card.style.display = 'flex';
       });
     });
+
+    /// Delegación de eventos para botones eliminar
+    document.addEventListener("click", function (e) {
+      if (e.target.classList.contains("eliminar-btn")) {
+        const card = e.target.closest(".recipe-card");
+        if (confirm("¿Deseas eliminar este registro?")) {
+          card.remove();
+        }
+      }
+    });
+
+    // Escuchar clics en botones de editar (delegado para futuras recetas también)
+    document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("editar-btn")) {
+      const card = e.target.closest(".recipe-card");
+      recetaEditando = card;
+
+      // Obtener los valores desde la card
+      const titulo = card.querySelector(".title").textContent;
+      const nota = card.querySelector(".nota").textContent.replace("NOTA: ", "");
+      const nivel = card.querySelector(".badge").textContent;
+      const etiquetas = Array.from(card.querySelectorAll(".tags span")).map(span => span.textContent);
+      const imagenSrc = card.querySelector("img").src;
+      document.getElementById("titulo").value = titulo;
+      document.getElementById("nota").value = nota;
+      document.getElementById("nivel").value = nivel;
+
+
+      // Setear valores en el formulario
+      // Función para encontrar el valor original del select que coincida (ignorando mayúsculas/tildes)
+      function asignarValorNormalizado(idSelect, valorTag) {
+        const select = document.getElementById(idSelect);
+        for (const option of select.options) {
+          if (option.value.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") ===
+              valorTag.toUpperCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")) {
+            select.value = option.value;
+            break;
+          }
+        }
+      }
+
+      asignarValorNormalizado("resultado", etiquetas[0]);
+      asignarValorNormalizado("dificultad", etiquetas[1]);
+      asignarValorNormalizado("presentacion", etiquetas[2]);
+      asignarValorNormalizado("tiempo", etiquetas[3]);
+
+
+      // Mostrar imagen previa (aunque input file no se puede setear por seguridad)
+      const preview = document.getElementById("preview");
+      preview.src = imagenSrc;
+      preview.style.display = "block";
+
+      // Mostrar el modal
+      modal.style.display = "flex";
+    }
+  });
 
   </script>
 </body>
