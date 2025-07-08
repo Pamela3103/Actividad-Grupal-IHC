@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notificaciones - EasyMeal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Salsa&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/notificaciones/styles.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="menu">
+        <a href="Menu.html"><button><img src="assets/diario/icons/Home.png" alt=""></button></a>
+        <a href="recomendaciones.html"><button><img src="assets/diario/icons/Comida rápida.png" alt=""></button></a>
+        <a href="favoritos.html"><button><img src="assets/diario/icons/Favoritos.png" alt=""></button></a>
+        <a href="diario.html"><button><img src="assets/diario/icons/Libreto.png" alt=""></button></a>
+        <a href="index.html"><button><img src="assets/diario/icons/Exit.jpg" alt=""></button></a>
+      </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="content">
+      <div class="logo">
+        <img src="assets/diario/icons/easymeal_logo.png" alt="EasyMeal Logo">
+        <span class="easymeal-title">EasyMeal</span>
+        <div class="header-right">
+          <button><img src="assets/diario/icons/Notificación.png" alt="Notificación"></button>
+          <button><img src="assets/diario/icons/User.png" alt="Usuario"></button>
+        </div>
+      </div>
+
+      <div class="notificaciones-container">
+        <div class="notificaciones-header">
+            <h2>Notificaciones</h2>
+            <button id="clear-notificaciones">Marcar todas como leídas</button>
+        </div>
+
+        <div class="notificaciones-lista" id="notificaciones-lista">
+            <div class="notificacion nueva">
+                <p><strong>🍓 Nueva receta recomendada:</strong> Cheesecake de Fresa</p>
+                <span class="hora">Hace 1 hora</span>
+                <div class="opciones-notificacion">
+                    <button class="marcar-leida">Leída</button>
+                    <button class="eliminar">Eliminar</button>
+                </div>
+            </div>
+
+            <div class="notificacion nueva">
+            <p><strong>📌 Tip del día:</strong> Usa miel en lugar de azúcar para recetas más saludables</p>
+            <span class="hora">Hace 3 horas</span>
+            <div class="opciones-notificacion">
+                <button class="marcar-leida">Leída</button>
+                <button class="eliminar">Eliminar</button>
+                </div>
+
+            </div>
+            <div class="notificacion">
+            <p>🎉 ¡Felicidades! Completaste 5 recetas esta semana</p>
+            <span class="hora">Ayer</span>
+            <div class="opciones-notificacion">
+                <button class="marcar-leida">Leída</button>
+                <button class="eliminar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("clear-notificaciones").addEventListener("click", () => {
+      const notificaciones = document.querySelectorAll(".notificacion");
+      notificaciones.forEach(notif => notif.classList.remove("nueva"));
+      alert("Todas las notificaciones fueron marcadas como leídas.");
+    });
+  </script>
+  <script>
+    // Marcar como leída una notificación
+    document.querySelectorAll(".marcar-leida").forEach(btn => {
+        btn.addEventListener("click", () => {
+        const notif = btn.closest(".notificacion");
+        notif.classList.remove("nueva");
+        });
+    });
+
+    // Eliminar una notificación
+    document.querySelectorAll(".eliminar").forEach(btn => {
+        btn.addEventListener("click", () => {
+        const notif = btn.closest(".notificacion");
+        notif.remove();
+        });
+    });
+    </script>
+
+
+</body>
+</html>
