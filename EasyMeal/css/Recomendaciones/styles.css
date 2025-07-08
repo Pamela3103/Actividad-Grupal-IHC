@@ -260,3 +260,8 @@ html, body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
+.menu button:hover {
+  color: #eee;
+  background-color: #ff38e4;
+  border-radius: 8px;
+}
