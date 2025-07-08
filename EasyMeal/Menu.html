@@ -252,6 +252,7 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // --- Mantenemos todos los elementos del DOM ---
     const titleSearchInput = document.getElementById('titleSearch');
     const advancedSearchInput = document.getElementById('advancedSearch');
     const nivelFiltro = document.getElementById('nivelFiltro');
@@ -263,58 +264,65 @@
     const quitarFiltrosBtn = document.getElementById('quitar-filtros');
     const noResultsMsg = document.getElementById('no-results');
     const todasLasTarjetas = document.querySelectorAll('.recipe-card');
+    const sidebarLinks = document.querySelectorAll(".sidebar .menu a");
 
+    // --- Mantenemos la función de filtros ---
     function applyAllFilters() {
-      const titleQuery = titleSearchInput.value.toLowerCase();
-      const advancedQuery = advancedSearchInput.value.toLowerCase();
-      const nivelQuery = nivelFiltro.value;
-      const tiempoQuery = tiempoFiltro.value;
-      const presupuestoQuery = presupuestoFiltro.value;
-      const ingredienteQuery = ingredienteFiltro.value;
+        const titleQuery = titleSearchInput.value.toLowerCase();
+        const advancedQuery = advancedSearchInput.value.toLowerCase();
+        const nivelQuery = nivelFiltro.value;
+        const tiempoQuery = tiempoFiltro.value;
+        const presupuestoQuery = presupuestoFiltro.value;
+        const ingredienteQuery = ingredienteFiltro.value;
 
-      let resultsFound = false;
+        let resultsFound = false;
 
-      todasLasTarjetas.forEach(card => {
-        const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
-        const tagsText = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
-        const nivel = card.dataset.nivel;
-        const presupuesto = card.dataset.presupuesto;
-        const ingredientes = card.dataset.ingredientes || '';
+        todasLasTarjetas.forEach(card => {
+            const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+            const tagsText = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
+            const nivel = card.dataset.nivel;
+            const presupuesto = card.dataset.presupuesto;
+            const ingredientes = card.dataset.ingredientes || '';
 
-        const matchesTitle = title.includes(titleQuery);
-        const matchesAdvanced = title.includes(advancedQuery) || tagsText.includes(advancedQuery) || ingredientes.includes(advancedQuery);
-        const matchesNivel = (nivelQuery === 'Todos' || nivel === nivelQuery);
-        const matchesTiempo = (tiempoQuery === 'Todos' || tagsText.toUpperCase().includes(tiempoQuery.toUpperCase()));
-        const matchesPresupuesto = (presupuestoQuery === 'Todos' || presupuesto === presupuestoQuery);
-        const matchesIngrediente = (ingredienteQuery === 'Todos' || ingredientes.includes(ingredienteQuery));
+            const matchesTitle = title.includes(titleQuery);
+            const matchesAdvanced = title.includes(advancedQuery) || tagsText.includes(advancedQuery) || ingredientes.includes(advancedQuery);
+            const matchesNivel = (nivelQuery === 'Todos' || nivel === nivelQuery);
+            const matchesTiempo = (tiempoQuery === 'Todos' || tagsText.toUpperCase().includes(tiempoQuery.toUpperCase()));
+            const matchesPresupuesto = (presupuestoQuery === 'Todos' || presupuesto === presupuestoQuery);
+            const matchesIngrediente = (ingredienteQuery === 'Todos' || ingredientes.includes(ingredienteQuery));
 
-        if (matchesTitle && matchesAdvanced && matchesNivel && matchesTiempo && matchesPresupuesto && matchesIngrediente) {
-          card.style.display = 'block';
-          resultsFound = true;
-        } else {
-          card.style.display = 'none';
-        }
-      });
-
-      noResultsMsg.style.display = resultsFound ? 'none' : 'block';
-    }
-    //quitar filtros
-    quitarFiltrosBtn.addEventListener('click', () => {
-      const confirmReset = confirm("¿Estás seguro de que quieres quitar todos los filtros?");
-      if (confirmReset) {
-        titleSearchInput.value = '';
-        advancedSearchInput.value = '';
-        document.querySelectorAll('.filters select').forEach(select => {
-          select.value = 'Todos';
+            if (matchesTitle && matchesAdvanced && matchesNivel && matchesTiempo && matchesPresupuesto && matchesIngrediente) {
+                card.style.display = 'block';
+                resultsFound = true;
+            } else {
+                card.style.display = 'none';
+            }
         });
-        applyAllFilters();
-      }
+
+        noResultsMsg.style.display = resultsFound ? 'none' : 'block';
+    }
+
+    // --- Mantenemos todos los listeners de eventos ---
+    
+    // Evento de quitar filtros con confirmación
+    quitarFiltrosBtn.addEventListener('click', () => {
+        const confirmReset = confirm("¿Estás seguro de que quieres quitar todos los filtros?");
+        if (confirmReset) {
+            titleSearchInput.value = '';
+            advancedSearchInput.value = '';
+            document.querySelectorAll('.filters select').forEach(select => {
+                select.value = 'Todos';
+            });
+            applyAllFilters();
+        }
     });
 
+    // Mostrar u ocultar barra de búsqueda avanzada
     toggleSearchBtn.addEventListener('click', () => {
-      secondSearchBar.style.display = secondSearchBar.style.display === 'none' ? 'flex' : 'none';
+        secondSearchBar.style.display = secondSearchBar.style.display === 'none' ? 'flex' : 'none';
     });
 
+    // Aplicar filtros al interactuar con los elementos
     titleSearchInput.addEventListener('input', applyAllFilters);
     advancedSearchInput.addEventListener('input', applyAllFilters);
     nivelFiltro.addEventListener('change', applyAllFilters);
@@ -322,17 +330,18 @@
     presupuestoFiltro.addEventListener('change', applyAllFilters);
     ingredienteFiltro.addEventListener('change', applyAllFilters);
 
+
+    // --- AÑADIMOS LA NUEVA FUNCIONALIDAD de la pestaña activa ---
     const currentPage = location.pathname.split("/").pop();
-    const sidebarLinks = document.querySelectorAll(".sidebar .menu a");
-    //pestana actual
+
     sidebarLinks.forEach(link => {
-      const href = link.getAttribute("href");
-      if (href === currentPage) {
-        const button = link.querySelector("button");
-        if (button) button.classList.add("activo");
-      }
+        const href = link.getAttribute("href");
+        if (href === currentPage) {
+            const button = link.querySelector("button");
+            if (button) button.classList.add("activo");
+        }
     });
-  });
+});
 </script>
 
 </body>
