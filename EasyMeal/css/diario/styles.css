@@ -468,6 +468,11 @@ input[type="file"] {
   cursor: pointer;
   transition: transform 0.2s ease;
 }
+.menu button:hover {
+  color: #eee;
+  background-color: #ff38e4;
+  border-radius: 8px;
+}
 
 .card-actions button:hover {
   transform: scale(1.2);

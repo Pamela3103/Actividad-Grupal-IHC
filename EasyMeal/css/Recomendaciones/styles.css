@@ -331,3 +331,10 @@ html, body {
   opacity: 1;
   pointer-events: auto;
 }
+
+.menu button:hover {
+  color: #eee;
+  background-color: #4CAF50;
+  border-radius: 8px;
+}
+

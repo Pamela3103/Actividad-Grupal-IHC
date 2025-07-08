@@ -16,8 +16,9 @@
         <a href="Menu.html">
          <button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button>
         </a>
-        <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
-        <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
+        <a href="recomendaciones.html">
+          <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
+        </a>
         <a href="favoritos.html">
           <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
         </a>
@@ -38,7 +39,9 @@
         <span>EasyMeal</span>
         <div class="header-right">
            <button><img src="assets/Menu/icons/Notificación.png" alt="Notificación"></button>
-          <button><img src="assets/Menu/icons/User.png" alt="Usuario"></button>
+          <a href="test.html" class="icono-link">
+            <img src="assets/recomendaciones/icons/User.png" alt="Ir a mi perfil de Usuario">
+          </a>
         </div>
       </div>
       <div class="header">
@@ -103,7 +106,7 @@
 
         <!-- Pantalla de carga -->
         <div id="pantallaCarga" class="pantalla-transicion hidden">
-          <img id="imgCarga" src="assets/Detalle_Receta/Loading_1.jpg" alt="Cargando" />
+          <img id="imgCarga" src="assets/Detalle_Receta/icons/Loading_1.jpg" alt="Cargando" />
           <h2>Preparando la cocina</h2>
           <p>Espere un momento</p>
         </div>
@@ -279,9 +282,9 @@
         mostrarPaso(pasoActual);
       }
       const imagenesCarga = [
-        "assets/Detalle_Receta/Loading_2.jpg",
-        "assets/Detalle_Receta/Loading_3.jpg",
-        "assets/Detalle_Receta/Loading_4.jpg"
+        "assets/Detalle_Receta/icons/Loading_2.jpg",
+        "assets/Detalle_Receta/icons/Loading_3.jpg",
+        "assets/Detalle_Receta/icons/Loading_4.jpg"
       ];
 
       let indexCarga = 0;
