@@ -297,33 +297,26 @@
         noResultsMsg.style.display = resultsFound ? 'none' : 'block';
       }
 
-      // --- EVENTOS ---
-      toggleSearchBtn.addEventListener('click', () => {
-        const isHidden = secondSearchBar.style.display === 'none' || secondSearchBar.style.display === '';
-        secondSearchBar.style.display = isHidden ? 'flex' : 'none';
-      });
+    //Evento de quitar filtros  
+  quitarFiltrosBtn.addEventListener('click', () => {
+  const confirmReset = confirm("¿Estás seguro de que quieres quitar todos los filtros?");
+  if (confirmReset) {
+    titleSearchInput.value = '';
+    advancedSearchInput.value = '';
+    document.querySelectorAll('.filters select').forEach(select => {
+        select.value = 'Todos';
+    });
 
-      // Aplicar filtros al cambiar cualquier campo
-      titleSearchInput.addEventListener('input', applyAllFilters);
-      advancedSearchInput.addEventListener('input', applyAllFilters);
-      nivelFiltro.addEventListener('change', applyAllFilters);
-      tiempoFiltro.addEventListener('change', applyAllFilters);
-      presupuestoFiltro.addEventListener('change', applyAllFilters);
-      ingredienteFiltro.addEventListener('change', applyAllFilters);
-
-      quitarFiltrosBtn.addEventListener('click', () => {
-        // Reiniciar campos y desplegables
-        titleSearchInput.value = '';
-        advancedSearchInput.value = '';
-        document.querySelectorAll('.filters select').forEach(select => {
-            select.value = 'Todos';
-        });
-        
-        applyAllFilters();
-      });
+    applyAllFilters();
+  }
+  });
+      
 
     });
+
+    
   </script>
+  
 
 </body>
 </html>
