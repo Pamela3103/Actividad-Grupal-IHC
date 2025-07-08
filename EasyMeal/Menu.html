@@ -8,7 +8,6 @@
 </head>
 <body>
   <div class="container">
-
     <div class="sidebar">
       <div class="menu">
         <a href="Menu.html"><button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button></a>
@@ -30,18 +29,19 @@
           </a>
         </div>
       </div>
+
       <div class="header">
         <div class="search-bar">
           <input type="text" id="titleSearch" placeholder="Busca por título de receta..." />
           <button class="filter-button"><img src="assets/Menu/icons/Gorra_chef.png" alt=""></button>
         </div>
-        
+
         <div class="filters">
           <img id="toggleSearch" src="assets/Menu/icons/Filtros.png" style="cursor: pointer;" alt="Toggle Advanced Search">
           <div id="secondSearchBar" class="search-bar" style="display: none; margin-top: 10px;">
             <input type="text" id="advancedSearch" placeholder="Busca por ingrediente, etiqueta, etc..." />
           </div>
-          
+
           <select id="nivelFiltro">
             <option value="Todos" selected>Nivel</option>
             <option value="Principiante">Principiante</option>
@@ -61,36 +61,36 @@
             <option value="Premium">Premium</option>
           </select>
           <select id="ingredienteFiltro">
-          <option value="Todos" selected>Ingrediente</option>
-          <option value="limon">Limón</option>
-          <option value="papa">Papa</option>
-          <option value="tomate">Tomate</option>
-          <option value="huevo">Huevo</option>
-          <option value="carne">Carne</option>
-          <option value="pollo">Pollo</option>
-          <option value="pescado">Pescado</option>
-          <option value="marisco">Marisco</option>
-          <option value="arroz">Arroz</option>
-          <option value="pasta">Pasta</option>
-          <option value="avena">Avena</option>
-          <option value="salchicha">Salchicha</option>
-          <option value="palta">Palta</option>
-          <option value="atun">Atún</option>
-          <option value="pan">Pan</option>
-          <option value="queso">Queso</option>
-          <option value="verduras">Verduras</option>
-          <option value="aceite">Aceite</option>
-          <option value="hierbas">Hierbas</option>
-          <option value="leche">Leche</option>
-          <option value="chocolate">Chocolate</option>
-          <option value="frutas">Frutas</option>
-      </select>
+            <option value="Todos" selected>Ingrediente</option>
+            <option value="limon">Limón</option>
+            <option value="papa">Papa</option>
+            <option value="tomate">Tomate</option>
+            <option value="huevo">Huevo</option>
+            <option value="carne">Carne</option>
+            <option value="pollo">Pollo</option>
+            <option value="pescado">Pescado</option>
+            <option value="marisco">Marisco</option>
+            <option value="arroz">Arroz</option>
+            <option value="pasta">Pasta</option>
+            <option value="avena">Avena</option>
+            <option value="salchicha">Salchicha</option>
+            <option value="palta">Palta</option>
+            <option value="atun">Atún</option>
+            <option value="pan">Pan</option>
+            <option value="queso">Queso</option>
+            <option value="verduras">Verduras</option>
+            <option value="aceite">Aceite</option>
+            <option value="hierbas">Hierbas</option>
+            <option value="leche">Leche</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="frutas">Frutas</option>
+          </select>
+
           <button id="quitar-filtros"><img src="assets/Menu/icons/Eliminar_filtro.png">Quitar filtros</button>
         </div>
-        
       </div>
 
-      <div class="recipe-grid">
+     <div class="recipe-grid">
     <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Premium" data-ingredientes="carne">
         <div class="badge">Master Chef</div>
         <img src="assets/Menu/Boeuf Bourguignon.jpg" alt="Boeuf bourguignon"/>
@@ -244,8 +244,15 @@
     </div>
   </div>
 
+      <p id="no-results" style="display: none; text-align: center; font-weight: bold; margin-top: 20px;">
+        No se encontraron recetas que coincidan con los filtros seleccionados.
+      </p>
+    </div>
+  </div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
+
       const titleSearchInput = document.getElementById('titleSearch');
       const advancedSearchInput = document.getElementById('advancedSearch');
       const nivelFiltro = document.getElementById('nivelFiltro');
@@ -258,6 +265,7 @@
       const toggleSearchBtn = document.getElementById('toggleSearch');
       const secondSearchBar = document.getElementById('secondSearchBar');
 
+
       function applyAllFilters() {
         const titleQuery = titleSearchInput.value.toLowerCase();
         const advancedQuery = advancedSearchInput.value.toLowerCase();
@@ -269,7 +277,7 @@
         let resultsFound = false;
 
         todasLasTarjetas.forEach(card => {
-          const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+             const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
           const tagsText = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
           const nivel = card.dataset.nivel;
           const presupuesto = card.dataset.presupuesto;
@@ -291,9 +299,8 @@
         });
 
         noResultsMsg.style.display = resultsFound ? 'none' : 'block';
-      }
-
-      // Evento de quitar filtros con confirmación
+    }
+// Evento de quitar filtros con confirmación
       quitarFiltrosBtn.addEventListener('click', () => {
         const confirmReset = confirm("¿Estás seguro de que quieres quitar todos los filtros?");
         if (confirmReset) {
@@ -320,7 +327,20 @@
       ingredienteFiltro.addEventListener('change', applyAllFilters);
     });
   </script>
-  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = location.pathname.split("/").pop(); // Ej: "Menu.html"
+    const buttons = document.querySelectorAll(".sidebar .menu a");
+
+    buttons.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === currentPage) {
+        const button = link.querySelector("button");
+        button?.classList.add("activo");
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
