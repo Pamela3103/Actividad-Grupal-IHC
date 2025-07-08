@@ -57,18 +57,21 @@
         </div>
         <div class="imagen-receta">
           <div class="imagen-wrapper">
-            <img src="assets/Detalle_Receta/Paella.jpg" alt="Paella" />
+            <img src="assets/Detalle_Receta/ramenbanner.jpg" alt="Paella" />
             <button class="heart-button">♡</button>
           </div>
           <div class="info-superpuesta">
-            <h1>Paella</h1>
+            <h1>Ramen Tonkotsu</h1>
             <p>
-            La paella es un plato de arroz originario de Valencia, España, que se caracteriza por una técnica de cocción
-            lenta y precisa. Se caracteriza por su arroz cocido con azafrán y una variedad de ingredientes, como mariscos,
-            carnes y verduras.
+            El ramen tonkotsu es una sopa japonesa tradicional originaria de la región de Fukuoka, 
+            en la isla de Kyushu. Se caracteriza por su caldo espeso y cremoso, elaborado a partir
+            de huesos de cerdo cocidos a fuego lento durante varias horas. Este caldo se acompaña
+            de fideos de trigo finos y firmes, y suele servirse con ingredientes como chashu (cerdo asado), 
+            huevo marinado, cebolla china y alga nori, creando un plato reconfortante, rico en sabor y
+            profundamente umami.
             </p>
           <div class="duracion">
-            Duración: 1h 10m <img src="assets/Detalle_Receta/España.png" alt="España" />
+            Duración: 1h 30m <img src="assets/Detalle_Receta/japon.jpg" alt="España" />
           </div>
           <div class="badge">Master Chef</div>
         </div>
@@ -84,16 +87,17 @@
       <div class="ingredientes">
         <h3>Ingredientes:</h3>
         <ul id="listaIngredientes">
-          <li>300 g de arroz</li>
-          <li>800 ml de caldo de pollo/pescado</li>
-          <li>250 g de pollo</li>
-          <li>150 g de mariscos (calamar, camarones)</li>
-          <li>1 pimiento</li>
-          <li>100 g de chícharos</li>
-          <li>2 dientes de ajo</li>
-          <li>1 tomate triturado</li>
-          <li>Hebras de azafrán o colorante</li>
-          <li>Aceite de oliva, sal al gusto</li>
+            <li>200 g de fideos ramen</li>
+            <li>1 litro de caldo de cerdo (tonkotsu)</li>
+            <li>150 g de panceta de cerdo (chashu)</li>
+            <li>2 huevos cocidos marinados (ajitsuke tamago)</li>
+            <li>1 cucharada de pasta miso</li>
+            <li>1 cucharada de salsa de soya</li>
+            <li>1 cucharadita de aceite de sésamo</li>
+            <li>1 diente de ajo</li>
+            <li>Cebolla china (parte verde, picada)</li>
+            <li>Brotes de bambú (menma)</li>
+            <li>Alga nori</li>
         </ul>
       </div>
 
@@ -314,17 +318,18 @@
     </script>
     <script>
       const ingredientesBase = [
-        { cantidad: "300", unidad: "g", nombre: "arroz" },
-        { cantidad: "800", unidad: "ml", nombre: "caldo de pollo/pescado" },
-        { cantidad: "250", unidad: "g", nombre: "pollo" },
-        { cantidad: "150", unidad: "g", nombre: "mariscos (calamar, camarones)" },
-        { cantidad: "1", unidad: "", nombre: "pimiento" },
-        { cantidad: "100", unidad: "g", nombre: "chícharos" },
-        { cantidad: "2", unidad: "dientes", nombre: "ajo" },
-        { cantidad: "1", unidad: "", nombre: "tomate triturado" },
-        { cantidad: "", unidad: "", nombre: "Hebras de azafrán o colorante" },
-        { cantidad: "", unidad: "", nombre: "Aceite de oliva, sal al gusto" },
-      ];
+        { cantidad: "200", unidad: "g", nombre: "fideos ramen" },
+        { cantidad: "1000", unidad: "ml", nombre: "caldo de cerdo (tonkotsu)" },
+        { cantidad: "150", unidad: "g", nombre: "panceta de cerdo (chashu)" },
+        { cantidad: "2", unidad: "", nombre: "huevos cocidos marinados (ajitsuke tamago)" },
+        { cantidad: "1", unidad: "cda", nombre: "pasta miso" },
+        { cantidad: "1", unidad: "cda", nombre: "salsa de soya" },
+        { cantidad: "1", unidad: "cdta", nombre: "aceite de sésamo" },
+        { cantidad: "1", unidad: "diente", nombre: "ajo" },
+        { cantidad: "", unidad: "", nombre: "Cebolla china (picada)" },
+        { cantidad: "", unidad: "", nombre: "Brotes de bambú (menma)" },
+        { cantidad: "", unidad: "", nombre: "Alga nori" }
+    ];
 
       const porciones = {
         personal: 0.5,
@@ -357,9 +362,8 @@
           this.textContent = this.classList.contains("active") ? "♥" : "♡";
         });
       });
-      
     </script>
-    <script>
+<script>
   document.addEventListener("DOMContentLoaded", () => {
     const currentPage = location.pathname.split("/").pop(); // Ej: "Menu.html"
     const buttons = document.querySelectorAll(".sidebar .menu a");
@@ -373,7 +377,6 @@
     });
   });
 </script>
-
   </body>
 </html>
 

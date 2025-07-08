@@ -450,4 +450,37 @@ input[type="file"] {
 
 #confirm-no {
   background-color: #ccc;
+
 }
+/*Opciones de borrar y editar*/
+.card-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-left: 10px;
+}
+
+.card-actions button {
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.menu button:hover {
+  color: #eee;
+  background-color: #ff38e4;
+  border-radius: 8px;
+}
+
+.card-actions button:hover {
+  transform: scale(1.2);
+}
+.sidebar .menu button.activo {
+  background-color: #ffc0cb; /* Rosa claro */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+  transition: all 0.3s ease;
+}
+

@@ -8,238 +8,338 @@
 </head>
 <body>
   <div class="container">
-
-    <!-- Sidebar -->
-     
     <div class="sidebar">
       <div class="menu">
-        <a href="Menu.html">
-         <button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button>
-        </a>
-        <button><img src="assets/diario/icons/Comida rápida.png" alt=""></button>
-        <button><img src="assets/diario/icons/Calendario.png" alt=""></button>
-        <a href="favoritos.html">
-          <button><img src="assets/diario/icons/Favoritos.png" alt=""></button>
-        </a>
-        <a href="diario.html">
-          <button><img src="assets/diario/icons/Libreto.png" alt=""></button>
-        </a>
-        <a href="index.html"></a>
-          <button><img src="assets/diario/icons/Exit.jpg" alt=""></button>
-        </a>
+        <a href="Menu.html"><button><img src="assets/diario/icons/Home.png" alt="Ir a página"></button></a>
+        <a href="recomendaciones.html"><button><img src="assets/diario/icons/Comida rápida.png" alt=""></button></a>
+        <a href="favoritos.html"><button><img src="assets/diario/icons/Favoritos.png" alt=""></button></a>
+        <a href="diario.html"><button><img src="assets/diario/icons/Libreto.png" alt=""></button></a>
+        <a href="index.html"><button><img src="assets/diario/icons/Exit.jpg" alt=""></button></a>
       </div>
     </div>
-
-    <!-- Main content -->
 
     <div class="content">
       <div class="logo">
         <img src="assets/Menu/icons/easymeal_logo.png" alt="EasyMeal Logo">
         <span>EasyMeal</span>
         <div class="header-right">
-          <button><img src="assets/Menu/icons/Notificación.png" alt="Notificación"></button>
-          <button><img src="assets/Menu/icons/User.png" alt="Usuario"></button>
+          <a href="notificaciones.html">
+            <img src="assets/Menu/icons/Notificación.png" alt="Notificación">
+          </a>
+          <a href="test.html" class="icono-link">
+            <img src="assets/recomendaciones/icons/User.png" alt="Ir a mi perfil de Usuario">
+          </a>
         </div>
       </div>
+
       <div class="header">
         <div class="search-bar">
-          <input type="text" id="titleSearch" placeholder="Búsqueda" />
+          <input type="text" id="titleSearch" placeholder="Busca por título de receta..." />
           <button class="filter-button"><img src="assets/Menu/icons/Gorra_chef.png" alt=""></button>
         </div>
-        
-        <div class="filters">
-          <img id="toggleSearch" src="assets/Menu/icons/Filtros.png" style="cursor: pointer;">
-    
 
-        <div id="secondSearchBar" class="search-bar" style="display: none; margin-top: 10px;">
-          <input type="text" placeholder="Busqueda Avanzada" />
-          <button class="filter-button"></button>
-        </div>
-          <select id="tiempo">
-            <option disabled selected hidden>Tiempo</option>
-            <option value="Rápido">Rápido</option>
-            <option value="Moderado">Moderado</option>
-            <option value="Extenso">Lento</option>
-          </select>
-          <select>
-            <option disabled selected hidden>Nivel</option>
-            <option value="Básico">Fácil</option>
+        <div class="filters">
+          <img id="toggleSearch" src="assets/Menu/icons/Filtros.png" style="cursor: pointer;" alt="Toggle Advanced Search">
+          <div id="secondSearchBar" class="search-bar" style="display: none; margin-top: 10px;">
+            <input type="text" id="advancedSearch" placeholder="Busca por ingrediente, etiqueta, etc..." />
+          </div>
+
+          <select id="nivelFiltro">
+            <option value="Todos" selected>Nivel</option>
+            <option value="Principiante">Principiante</option>
             <option value="Intermedio">Intermedio</option>
             <option value="Master Chef">Master Chef</option>
           </select>
-          <select>
-            <option disabled selected hidden>Presupuesto</option>
+          <select id="tiempoFiltro">
+            <option value="Todos" selected>Tiempo</option>
+            <option value="Rápido">Rápido</option>
+            <option value="Moderado">Moderado</option>
+            <option value="Lento">Lento</option>
+          </select>
+          <select id="presupuestoFiltro">
+            <option value="Todos" selected>Presupuesto</option>
             <option value="Económico">Económico</option>
             <option value="Estándar">Estándar</option>
             <option value="Premium">Premium</option>
           </select>
-          <select name="ingrediente" id="ingrediente">
-             <option disabled selected hidden>Ingrediente</option>
-                <option value="limon">LIMON</option>
-                <option value="papa">PAPA</option>
-                <option value="tomates">TOMATE</option>
-                <option value="huevos">HUEVO</option>
+          <select id="ingredienteFiltro">
+            <option value="Todos" selected>Ingrediente</option>
+            <option value="limon">Limón</option>
+            <option value="papa">Papa</option>
+            <option value="tomate">Tomate</option>
+            <option value="huevo">Huevo</option>
+            <option value="carne">Carne</option>
+            <option value="pollo">Pollo</option>
+            <option value="pescado">Pescado</option>
+            <option value="marisco">Marisco</option>
+            <option value="arroz">Arroz</option>
+            <option value="pasta">Pasta</option>
+            <option value="avena">Avena</option>
+            <option value="salchicha">Salchicha</option>
+            <option value="palta">Palta</option>
+            <option value="atun">Atún</option>
+            <option value="pan">Pan</option>
+            <option value="queso">Queso</option>
+            <option value="verduras">Verduras</option>
+            <option value="aceite">Aceite</option>
+            <option value="hierbas">Hierbas</option>
+            <option value="leche">Leche</option>
+            <option value="chocolate">Chocolate</option>
+            <option value="frutas">Frutas</option>
           </select>
+
           <button id="quitar-filtros"><img src="assets/Menu/icons/Eliminar_filtro.png">Quitar filtros</button>
         </div>
-       
       </div>
 
-      <!-- Recipe Cards -->
-       
-      <div class="recipe-grid">
-        <div class="recipe-card">
-          <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Boeuf Bourguignon.jpg" alt="Scouf bourguignon"/>
-          <div class="title">BOEUF BOURGUIGNON</div>
-          <div class="tags">
-            <span>CARNE</span><span>LENTO</span><span>PROTEINA</span>
-          </div>
-        </div>
-        <div class="recipe-card">
-          <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Ramen Tonkotsu.jpg" alt="Ramen tonkotsu"/>
-          <div class="title">RAMEN TONKOTSU</div>
-          <div class="tags">
-            <span>RÁPIDO</span><span>JAPONÉS</span>
-          </div>
-        </div>
-         <div class="recipe-card" data-nivel="Master Chef">
-          <div class="badge">Master Chef</div>
-          <a href="detalle_receta.html" class="image-button" onclick="console.log('Paella de mariscos')">
-            <img src="assets/Nivel_Experiencia/images/Paella de mariscos.jpg" alt="Paella de mariscos"/>
-          </a>
-          <div class="title">PAELLA DE MARISCOS</div>
-          <div class="tags">
-            <span>MARISCO</span><span>MASTER CHEF</span>
-          </div>
-        </div>
-        <div class="recipe-card">
-          <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Salmón en costra de hierbas.jpg" alt="Salmón con costra de hierbas"/>
-          <div class="title">SALMÓN CON COSTRA DE HIERBAS</div>
-          <div class="tags">
-            <span>PESCADO</span><span>MODERADO</span>
-          </div>
-        </div>
-        <div class="recipe-card">
-          <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Filete wellington.jpg" alt="Filet Wellington"/>
-          <div class="title">FILET WELLINGTON</div>
-          <div class="tags">
-            <span>CARNE</span><span>RÁPIDO</span><span>AVANZADO</span><span>PROTEINA</span>
-          </div>
-        </div>
-        <div class="recipe-card">
-          <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Opera cake.jpg" alt="Opera Cake"/>
-          <div class="title">OPERA CAKE</div>
-          <div class="tags">
-            <span>DULCE</span><span>RÁPIDO</span>
-          </div>
-        </div>
-        <div class="recipe-card">
-          <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Macarons franceses.jpg" alt="Macarons franceses"/>
-          <div class="title">MACARONS FRANCESES</div>
-          <div class="tags">
-            <span>RÁPIDO</span><span>PASTELERÍA</span>
-          </div>
-        </div>
-        <div class="recipe-card">
-          <div class="badge">Master Chef</div>
-          <img src="assets/Menu/Tara de crema de limón con merengue.jpg" alt="Tarta de limón con merengue"/>
-          <div class="title">TARTA DE LIMÓN CON MERENGUE</div>
-          <div class="tags">
-            <span>DULCE</span><span>RÁPIDO</span><span>LIMON</span>
-          </div>
-        </div>
-      </div>
-        <p id="no-results" style="display: none; text-align: center; font-weight: bold; margin-top: 20px;">
-          No se encontraron recetas que coincidan con los filtros seleccionados.
-        </p>
+     <div class="recipe-grid">
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Premium" data-ingredientes="carne">
+        <div class="badge">Master Chef</div>
+        <img src="assets/Menu/Boeuf Bourguignon.jpg" alt="Boeuf bourguignon"/>
+        <div class="title">BOEUF BOURGUIGNON</div>
+        <div class="tags"><span>CARNE</span><span>LENTO</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Estándar" data-ingredientes="pollo">
+        <div class="badge">Master Chef</div>
+        <a href="detalle_receta2.html"><img src="assets/Menu/Ramen Tonkotsu.jpg" alt="Ramen tonkotsu"/></a>
+        <div class="title">RAMEN TONKOTSU</div>
+        <div class="tags"><span>RÁPIDO</span><span>JAPONÉS</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Premium" data-ingredientes="marisco">
+        <div class="badge">Master Chef</div>
+        <a href="detalle_receta.html" class="image-button"><img src="assets/Nivel_Experiencia/images/Paella de mariscos.jpg" alt="Paella de mariscos"/></a>
+        <div class="title">PAELLA DE MARISCOS</div>
+        <div class="tags"><span>MARISCO</span><span>MASTER CHEF</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Estándar" data-ingredientes="pescado hierbas">
+        <div class="badge">Master Chef</div>
+        <img src="assets/Menu/Salmón en costra de hierbas.jpg" alt="Salmón con costra de hierbas"/>
+        <div class="title">SALMÓN CON COSTRA DE HIERBAS</div>
+        <div class="tags"><span>PESCADO</span><span>MODERADO</span><span>PROTEINA</span><span>BAJO EN CALORIAS</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Premium" data-ingredientes="carne hojaldre">
+        <div class="badge">Master Chef</div>
+        <img src="assets/Nivel_Experiencia/images/Filete wellington.jpg" alt="Filet Wellington"/>
+        <div class="title">FILET WELLINGTON</div>
+        <div class="tags"><span>CARNE</span><span>MASTER CHEF</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Premium" data-ingredientes="chocolate almendra cafe">
+        <div class="badge">Master Chef</div>
+        <img src="assets/Nivel_Experiencia/images/Opera cake.jpg" alt="Opera Cake"/>
+        <div class="title">OPERA CAKE</div>
+        <div class="tags"><span>DULCE</span><span>MASTER CHEF</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Premium" data-ingredientes="almendra azucar huevo">
+        <div class="badge">Master Chef</div>
+        <img src="assets/Nivel_Experiencia/images/Macarons franceses.jpg" alt="Macarons franceses"/>
+        <div class="title">MACARONS FRANCESES</div>
+        <div class="tags"><span>COLORIDO</span><span>MASTER CHEF</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Master Chef" data-presupuesto="Estándar" data-ingredientes="limon huevo merengue">
+        <div class="badge">Master Chef</div>
+        <img src="assets/Nivel_Experiencia/images/Tara de crema de limón con merengue.jpg" alt="Tarta de limón con merengue"/>
+        <div class="title">TARTA DE LIMÓN CON MERENGUE</div>
+        <div class="tags"><span>DULCE</span><span>MASTER CHEF</span><span>LIMON</span></div>
+    </div>
+
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="pan ajo aceite">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/Pan_ajo.jpg" alt="Pan de ajo"/>
+        <div class="title">PAN DE AJO</div>
+        <div class="tags"><span>APERITIVO</span><span>PRINCIPIANTE</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="pollo">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/Brochetas_pollo.jpg" alt="Brochetas de pollo"/>
+        <div class="title">BROCHETAS DE POLLO</div>
+        <div class="tags"><span>POLLO</span><span>PRINCIPIANTE</span><span>PROTEINA</span><span>BAJO EN CALORIAS</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="pasta tomate">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/Pasta_con_salsa_tomate.jpeg" alt="Pasta con salsa"/>
+        <div class="title">PASTA CON SALSA</div>
+        <div class="tags"><span>PASTA</span><span>PRINCIPIANTE</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="atun pan">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/Sandwich_atun.jpg" alt="Sandwich de atun"/>
+        <div class="title">SANDWICH DE ATÚN</div>
+        <div class="tags"><span>ATÚN</span><span>PRINCIPIANTE</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="huevo tomate">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/images/Huevos_con_tomate.jpeg" alt="Huevos con salsa tomate"/>
+        <div class="title">HUEVOS CON SALSA DE TOMATE</div>
+        <div class="tags"><span>HUEVO</span><span>PRINCIPIANTE</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="banana avena miel">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/images/Banan_con_avenaymiel.jpg" alt="Banana con avena y miel"/>
+        <div class="title">BANANA CON AVENA Y MIEL</div>
+        <div class="tags"><span>DESAYUNO</span><span>PRINCIPIANTE</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="salchicha">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/images/Salchichas_salteadas.jpg" alt="Salchichas salteadas"/>
+        <div class="title">SALCHICHAS SALTEADAS</div>
+        <div class="tags"><span>CARNE</span><span>PRINCIPIANTE</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Principiante" data-presupuesto="Económico" data-ingredientes="palta huevo pan">
+        <div class="badge">Principiante</div>
+        <img src="assets/Nivel_Experiencia/Tostadas_palta y huevo.jpg" alt="Tostadas con palta y huevo"/>
+        <div class="title">TOSTADAS CON PALTA Y HUEVO</div>
+        <div class="tags"><span>HUEVO</span><span>PRINCIPIANTE</span><span>PROTEINA</span></div>
+    </div>
+
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Económico" data-ingredientes="papa huevo">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/images/Tortilla_papas.jpg" alt="Tortilla de papas"/>
+        <div class="title">TORTILLA DE PAPAS</div>
+        <div class="tags"><span>HUEVO</span><span>INTERMEDIO</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Estándar" data-ingredientes="carne verduras">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/Lomo_salteado.jpg" alt="Lomo salteado"/>
+        <div class="title">LOMO SALTEADO</div>
+        <div class="tags"><span>CARNE</span><span>INTERMEDIO</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Económico" data-ingredientes="pollo verduras">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/images/Pollo_salteado_verduras.jpg" alt="Pollo salteado con verduras"/>
+        <div class="title">POLLO SALTEADO CON VERDURAS</div>
+        <div class="tags"><span>POLLO</span><span>INTERMEDIO</span><span>PROTEINA</span><span>BAJO EN CALORIAS</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Económico" data-ingredientes="avena leche frutas">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/images/Panqueques.jpg" alt="Panqueques de avena"/>
+        <div class="title">PANQUEQUES DE AVENA</div>
+        <div class="tags"><span>DESAYUNO</span><span>INTERMEDIO</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Económico" data-ingredientes="fideos queso">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/images/Fideos__con_huancaina.jpg" alt="Fideos con huancaína"/>
+        <div class="title">FIDEOS CON HUANCAÍNA</div>
+        <div class="tags"><span>PASTA</span><span>INTERMEDIO</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Económico" data-ingredientes="arroz pollo huevo">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/images/Chaufa_pollo.jpg" alt="Chaufa de pollo"/>
+        <div class="title">CHAUFA DE POLLO</div>
+        <div class="tags"><span>ARROZ</span><span>INTERMEDIO</span><span>RÁPIDO</span><span>PROTEINA</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Económico" data-ingredientes="papa queso">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/Croquetas_papa_queso.jpg" alt="Croquetas de papa y queso"/>
+        <div class="title">CROQUETAS DE PAPA Y QUESO</div>
+        <div class="tags"><span>APERITIVO</span><span>INTERMEDIO</span></div>
+    </div>
+    <div class="recipe-card" data-nivel="Intermedio" data-presupuesto="Económico" data-ingredientes="pan tomate queso">
+        <div class="badge">Intermedio</div>
+        <img src="assets/Nivel_Experiencia/images/Pizza_pan_pita.jpg" alt="Pizza con pan pita"/>
+        <div class="title">PIZZA CON PAN PITA</div>
+        <div class="tags"><span>ITALIANA</span><span>INTERMEDIO</span></div>
+    </div>
+</div>
+      <p id="no-results" style="display: none; text-align: center; font-weight: bold; margin-top: 20px;">
+        No se encontraron recetas que coincidan con los filtros seleccionados.
+      </p>
+    </div>
+  </div>
+
+      <p id="no-results" style="display: none; text-align: center; font-weight: bold; margin-top: 20px;">
+        No se encontraron recetas que coincidan con los filtros seleccionados.
+      </p>
     </div>
   </div>
 
   <script>
-  document.querySelector('#secondSearchBar input').addEventListener('input', function () {
-    const searchValue = this.value.toLowerCase();
+  document.addEventListener('DOMContentLoaded', () => {
 
-    document.querySelectorAll('.recipe-card').forEach(card => {
-      const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
-      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
+      const titleSearchInput = document.getElementById('titleSearch');
+      const advancedSearchInput = document.getElementById('advancedSearch');
+      const nivelFiltro = document.getElementById('nivelFiltro');
+      const tiempoFiltro = document.getElementById('tiempoFiltro');
+      const presupuestoFiltro = document.getElementById('presupuestoFiltro');
+      const ingredienteFiltro = document.getElementById('ingredienteFiltro');
+      const quitarFiltrosBtn = document.getElementById('quitar-filtros');
+      const noResultsMsg = document.getElementById('no-results');
+      const todasLasTarjetas = document.querySelectorAll('.recipe-card');
+      const toggleSearchBtn = document.getElementById('toggleSearch');
+      const secondSearchBar = document.getElementById('secondSearchBar');
 
-      const matches = title.includes(searchValue) || tags.includes(searchValue);
-      card.style.display = matches ? 'block' : 'none';
-    });
-  });
-</script>
 
-  <script>
-  document.getElementById('ingrediente').addEventListener('change', function () {
-    const selected = this.value.toUpperCase(); // Obtener ingrediente seleccionado
-    const cards = document.querySelectorAll('.recipe-card');
+      function applyAllFilters() {
+        const titleQuery = titleSearchInput.value.toLowerCase();
+        const advancedQuery = advancedSearchInput.value.toLowerCase();
+        const nivelQuery = nivelFiltro.value;
+        const tiempoQuery = tiempoFiltro.value;
+        const presupuestoQuery = presupuestoFiltro.value;
+        const ingredienteQuery = ingredienteFiltro.value;
 
-    cards.forEach(card => {
-      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
-      if (tags.includes(selected)) {
-        card.style.display = 'block'; // Mostrar si tiene el ingrediente
-      } else {
-        card.style.display = 'none'; // Ocultar si no lo tiene
-      }
-    });
-  });
-</script>
-  <script>
-  document.getElementById("toggleSearch").addEventListener("click", function () {
-      const bar = document.getElementById("secondSearchBar");
-      // Alternar visibilidad
-      bar.style.display = (bar.style.display === "none" || bar.style.display === "") ? "flex" : "none";
-  });
+        let resultsFound = false;
 
-  document.getElementById('tiempo').addEventListener('change', function () {
-    const selectedTime = this.value.toUpperCase(); // Obtener tiempo seleccionado
-    const cards = document.querySelectorAll('.recipe-card');
+        todasLasTarjetas.forEach(card => {
+             const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+          const tagsText = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
+          const nivel = card.dataset.nivel;
+          const presupuesto = card.dataset.presupuesto;
+          const ingredientes = card.dataset.ingredientes || '';
 
-    cards.forEach(card => {
-      const tags = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toUpperCase());
-      if (tags.includes(selectedTime)) {
-        card.style.display = 'block'; // Mostrar si incluye RÁPIDO
-      } else {
-        card.style.display = 'none'; // Ocultar si no lo tiene
-      }
-    });
-    verificarCoincidencias(); // Verificar si hay coincidencias después de aplicar el filtro
-  });
-</script>
-<script>// Botón para quitar filtros y mostrar todo
-    document.getElementById("quitar-filtros").addEventListener("click", () => {
-      document.querySelectorAll("select").forEach(select => {
-        select.selectedIndex = 0;
+          const matchesTitle = title.includes(titleQuery);
+          const matchesAdvanced = title.includes(advancedQuery) || tagsText.includes(advancedQuery) || ingredientes.includes(advancedQuery);
+          const matchesNivel = (nivelQuery === 'Todos' || nivel === nivelQuery);
+          const matchesTiempo = (tiempoQuery === 'Todos' || tagsText.toUpperCase().includes(tiempoQuery.toUpperCase()));
+          const matchesPresupuesto = (presupuestoQuery === 'Todos' || presupuesto === presupuestoQuery);
+          const matchesIngrediente = (ingredienteQuery === 'Todos' || ingredientes.includes(ingredienteQuery));
+
+          if (matchesTitle && matchesAdvanced && matchesNivel && matchesTiempo && matchesPresupuesto && matchesIngrediente) {
+            card.style.display = 'block';
+            resultsFound = true;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        noResultsMsg.style.display = resultsFound ? 'none' : 'block';
+    }
+// Evento de quitar filtros con confirmación
+      quitarFiltrosBtn.addEventListener('click', () => {
+        const confirmReset = confirm("¿Estás seguro de que quieres quitar todos los filtros?");
+        if (confirmReset) {
+          titleSearchInput.value = '';
+          advancedSearchInput.value = '';
+          document.querySelectorAll('.filters select').forEach(select => {
+            select.value = 'Todos';
+          });
+          applyAllFilters();
+        }
       });
-      document.querySelectorAll('.recipe-card').forEach(card => {
-        card.style.display = 'block'; // Mostrar todas las tarjetas
+
+      // Mostrar u ocultar barra de búsqueda avanzada
+      toggleSearchBtn.addEventListener('click', () => {
+        secondSearchBar.style.display = secondSearchBar.style.display === 'none' ? 'flex' : 'none';
       });
-      verificarCoincidencias();
+
+      // Aplicar filtros al interactuar con los elementos
+      titleSearchInput.addEventListener('input', applyAllFilters);
+      advancedSearchInput.addEventListener('input', applyAllFilters);
+      nivelFiltro.addEventListener('change', applyAllFilters);
+      tiempoFiltro.addEventListener('change', applyAllFilters);
+      presupuestoFiltro.addEventListener('change', applyAllFilters);
+      ingredienteFiltro.addEventListener('change', applyAllFilters);
     });
   </script>
   <script>
-  function verificarCoincidencias() {
-    const cards = document.querySelectorAll('.recipe-card');
-    const visibles = Array.from(cards).filter(card => card.style.display !== 'none');
-    const mensaje = document.getElementById('no-results');
-    mensaje.style.display = visibles.length === 0 ? 'block' : 'none';
-  }
-</script>
-<script>
-  document.querySelector('#titleSearch').addEventListener('input', function () {
-    const searchValue = this.value.toLowerCase();
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = location.pathname.split("/").pop(); // Ej: "Menu.html"
+    const buttons = document.querySelectorAll(".sidebar .menu a");
 
-    document.querySelectorAll('.recipe-card').forEach(card => {
-      const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
-
-      const matches = title.includes(searchValue);
-      card.style.display = matches ? 'block' : 'none';
+    buttons.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === currentPage) {
+        const button = link.querySelector("button");
+        button?.classList.add("activo");
+      }
     });
   });
 </script>

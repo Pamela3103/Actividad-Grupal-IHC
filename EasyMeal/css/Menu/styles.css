@@ -253,3 +253,14 @@ html, body {
   border: none;
   cursor: pointer;
 }
+.menu button:hover {
+  color: #eee;
+  background-color: #ff38e4;
+  border-radius: 8px;
+}
+.sidebar .menu button.activo {
+  background-color: #ffc0cb; /* Rosa claro */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 192, 203, 0.8);
+  transition: all 0.3s ease;
+}
