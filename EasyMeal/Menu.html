@@ -251,7 +251,8 @@
   </div>
 
   <script>
-      document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', () => {
+
       const titleSearchInput = document.getElementById('titleSearch');
       const advancedSearchInput = document.getElementById('advancedSearch');
       const nivelFiltro = document.getElementById('nivelFiltro');
@@ -264,8 +265,8 @@
       const toggleSearchBtn = document.getElementById('toggleSearch');
       const secondSearchBar = document.getElementById('secondSearchBar');
 
-    // --- Mantenemos la función de filtros ---
-    function applyAllFilters() {
+
+      function applyAllFilters() {
         const titleQuery = titleSearchInput.value.toLowerCase();
         const advancedQuery = advancedSearchInput.value.toLowerCase();
         const nivelQuery = nivelFiltro.value;
@@ -340,7 +341,6 @@
     });
   });
 </script>
-
 
 </body>
 </html>
