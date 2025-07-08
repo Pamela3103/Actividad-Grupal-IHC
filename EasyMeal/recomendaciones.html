@@ -66,31 +66,60 @@
       <div class="recipe-grid">
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/cheesecake_fresa.png" alt="Cheesecake de Fresa"/>
+          <!-- Contenedor de imagen con overlay -->
+          <div class="img-container">
+            <img src="assets/recomendaciones/cheesecake_fresa.png" alt="Cheesecake de Fresa"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
+
           <div class="title">CHEESECAKE DE FRESA</div>
           <div class="tags">
             <span>DULCE</span><span>RÁPIDO</span><span>POSTRE</span>
           </div>
         </div>
+
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/galletas.png" alt="Galletas con Chispas"/>
+          <div class="img-container">
+            <img src="assets/recomendaciones/galletas.png" alt="Cheesecake de Fresa"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
           <div class="title">GALLETAS CON CHISPAS</div>
           <div class="tags">
             <span class="rapido">DULCE</span><span>RÁPIDO</span><span>POSTRE</span>
           </div>
         </div>
+
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/yogurt_granola.jpg" alt="Yogurt con Granola"/>
+          <div class="img-container">
+            <img src="assets/recomendaciones/yogurt_granola.jpg" alt="Yogurt con granola"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
           <div class="title">YOGURT CON GRANOLA</div>
           <div class="tags">
             <span>DULCE</span><span class="rapido">RÁPIDO</span><span>SNACK</span>
           </div>
         </div>
+
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/tostadas_francesas.png" alt="Tostadas Francesas"/>
+          <div class="img-container">
+            <img src="assets/recomendaciones/tostadas_francesas.png" alt="Tostadas francesas"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
           <div class="title">TOSTADAS FRANCESAS</div>
           <div class="tags">
             <span>DULCE</span><span class="rapido">RÁPIDO</span><span>DESAYUNO</span>
@@ -98,7 +127,13 @@
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/mug_cake.png" alt="Mugcake con Chispas"/>
+          <div class="img-container">
+            <img src="assets/recomendaciones/mug_cake.png" alt="Mugcake con Chispas"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
           <div class="title">MUGCAKE DE VAINILLA CON CHISPAS</div>
           <div class="tags">
             <span>DULCE</span><span class="rapido">RÁPIDO</span><span>POSTRE</span>
@@ -106,7 +141,13 @@
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/crepes_nutella.png" alt="Crepes con Nutella"/>
+          <div class="img-container">
+            <img src="assets/recomendaciones/crepes_nutella.png" alt="Crepes con nutella"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
           <div class="title">CREPES CON NUTELLA Y FRESAS</div>
           <div class="tags">
             <span>DULCE</span><span class="rapido">RÁPIDO</span><span>POSTRE</span>
@@ -114,7 +155,13 @@
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/barras_avena.png" alt="Barras de Avena"/>
+          <div class="img-container">
+            <img src="assets/recomendaciones/barras_avena.png" alt="Barras de avena"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
           <div class="title">BARRAS DE AVENA</div>
           <div class="tags">
             <span>DULCE</span><span class="rapido">RÁPIDO</span><span>SNACK</span>
@@ -122,7 +169,13 @@
         </div>
         <div class="recipe-card">
           <div class="badge">Fácil</div>
-          <img src="assets/recomendaciones/batidos_platano.jpg" alt="Batido de Platano"/>
+          <div class="img-container">
+            <img src="assets/recomendaciones/batidos_platano.jpg" alt="Batido de platano"/>
+            <div class="overlay">
+              <button class="like-btn">❤️</button>
+              <button class="dislike-btn">👎</button>
+            </div>
+          </div>
           <div class="title">BATIDO DE PLATANO</div>
           <div class="tags">
             <span>DULCE</span><span class="rapido">RÁPIDO</span><span>DESAYUNO</span>
@@ -134,6 +187,8 @@
         </p>
     </div>
   </div>
+  <div id="like-message" class="like-message">¡Gracias! Tomaremos en cuenta esta receta para recomendarte otras similares. ❤️</div>
+
   <script>
     document.getElementById("filtro-categoria").addEventListener("change", function () {
       const categoriaSeleccionada = this.value.toUpperCase();
@@ -167,6 +222,35 @@
       mensaje.style.display = visibles.length === 0 ? 'block' : 'none';
     }
   </script>
+    <script>
+    document.querySelectorAll(".dislike-btn").forEach(btn => {
+      btn.addEventListener("click", function () {
+        const card = this.closest(".recipe-card");
+        card.remove();
+        verificarCoincidencias(); // Por si usas filtros
+      });
+    });
+
+    document.querySelectorAll(".like-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        mostrarMensajeLike();
+      });
+    });
+
+
+  </script>
+  <script>
+    function mostrarMensajeLike() {
+      const mensaje = document.getElementById("like-message");
+      mensaje.classList.add("show");
+
+      setTimeout(() => {
+        mensaje.classList.remove("show");
+      }, 3000); // desaparece después de 3 segundos
+    }
+  </script>
+  
+
 
 
 </body>
