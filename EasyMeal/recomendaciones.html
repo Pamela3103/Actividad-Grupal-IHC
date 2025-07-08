@@ -260,7 +260,20 @@
       }, 3000); // desaparece después de 3 segundos
     }
   </script>
-  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const currentPage = location.pathname.split("/").pop(); // Ej: "Menu.html"
+    const buttons = document.querySelectorAll(".sidebar .menu a");
+
+    buttons.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === currentPage) {
+        const button = link.querySelector("button");
+        button?.classList.add("activo");
+      }
+    });
+  });
+</script>
 
 
 

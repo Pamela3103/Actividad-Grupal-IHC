@@ -251,80 +251,89 @@
   </div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const titleSearchInput = document.getElementById('titleSearch');
-      const advancedSearchInput = document.getElementById('advancedSearch');
-      const nivelFiltro = document.getElementById('nivelFiltro');
-      const tiempoFiltro = document.getElementById('tiempoFiltro');
-      const presupuestoFiltro = document.getElementById('presupuestoFiltro');
-      const ingredienteFiltro = document.getElementById('ingredienteFiltro');
-      const quitarFiltrosBtn = document.getElementById('quitar-filtros');
-      const noResultsMsg = document.getElementById('no-results');
-      const todasLasTarjetas = document.querySelectorAll('.recipe-card');
-      const toggleSearchBtn = document.getElementById('toggleSearch');
-      const secondSearchBar = document.getElementById('secondSearchBar');
+  document.addEventListener('DOMContentLoaded', () => {
+    const titleSearchInput = document.getElementById('titleSearch');
+    const advancedSearchInput = document.getElementById('advancedSearch');
+    const nivelFiltro = document.getElementById('nivelFiltro');
+    const tiempoFiltro = document.getElementById('tiempoFiltro');
+    const presupuestoFiltro = document.getElementById('presupuestoFiltro');
+    const ingredienteFiltro = document.getElementById('ingredienteFiltro');
+    const toggleSearchBtn = document.getElementById('toggleSearch');
+    const secondSearchBar = document.getElementById('secondSearchBar');
+    const quitarFiltrosBtn = document.getElementById('quitar-filtros');
+    const noResultsMsg = document.getElementById('no-results');
+    const todasLasTarjetas = document.querySelectorAll('.recipe-card');
 
-      function applyAllFilters() {
-        const titleQuery = titleSearchInput.value.toLowerCase();
-        const advancedQuery = advancedSearchInput.value.toLowerCase();
-        const nivelQuery = nivelFiltro.value;
-        const tiempoQuery = tiempoFiltro.value;
-        const presupuestoQuery = presupuestoFiltro.value;
-        const ingredienteQuery = ingredienteFiltro.value;
+    function applyAllFilters() {
+      const titleQuery = titleSearchInput.value.toLowerCase();
+      const advancedQuery = advancedSearchInput.value.toLowerCase();
+      const nivelQuery = nivelFiltro.value;
+      const tiempoQuery = tiempoFiltro.value;
+      const presupuestoQuery = presupuestoFiltro.value;
+      const ingredienteQuery = ingredienteFiltro.value;
 
-        let resultsFound = false;
+      let resultsFound = false;
 
-        todasLasTarjetas.forEach(card => {
-          const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
-          const tagsText = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
-          const nivel = card.dataset.nivel;
-          const presupuesto = card.dataset.presupuesto;
-          const ingredientes = card.dataset.ingredientes || '';
+      todasLasTarjetas.forEach(card => {
+        const title = card.querySelector('.title')?.textContent.toLowerCase() || '';
+        const tagsText = Array.from(card.querySelectorAll('.tags span')).map(tag => tag.textContent.toLowerCase()).join(' ');
+        const nivel = card.dataset.nivel;
+        const presupuesto = card.dataset.presupuesto;
+        const ingredientes = card.dataset.ingredientes || '';
 
-          const matchesTitle = title.includes(titleQuery);
-          const matchesAdvanced = title.includes(advancedQuery) || tagsText.includes(advancedQuery) || ingredientes.includes(advancedQuery);
-          const matchesNivel = (nivelQuery === 'Todos' || nivel === nivelQuery);
-          const matchesTiempo = (tiempoQuery === 'Todos' || tagsText.toUpperCase().includes(tiempoQuery.toUpperCase()));
-          const matchesPresupuesto = (presupuestoQuery === 'Todos' || presupuesto === presupuestoQuery);
-          const matchesIngrediente = (ingredienteQuery === 'Todos' || ingredientes.includes(ingredienteQuery));
+        const matchesTitle = title.includes(titleQuery);
+        const matchesAdvanced = title.includes(advancedQuery) || tagsText.includes(advancedQuery) || ingredientes.includes(advancedQuery);
+        const matchesNivel = (nivelQuery === 'Todos' || nivel === nivelQuery);
+        const matchesTiempo = (tiempoQuery === 'Todos' || tagsText.toUpperCase().includes(tiempoQuery.toUpperCase()));
+        const matchesPresupuesto = (presupuestoQuery === 'Todos' || presupuesto === presupuestoQuery);
+        const matchesIngrediente = (ingredienteQuery === 'Todos' || ingredientes.includes(ingredienteQuery));
 
-          if (matchesTitle && matchesAdvanced && matchesNivel && matchesTiempo && matchesPresupuesto && matchesIngrediente) {
-            card.style.display = 'block';
-            resultsFound = true;
-          } else {
-            card.style.display = 'none';
-          }
-        });
-
-        noResultsMsg.style.display = resultsFound ? 'none' : 'block';
-      }
-
-      // Evento de quitar filtros con confirmación
-      quitarFiltrosBtn.addEventListener('click', () => {
-        const confirmReset = confirm("¿Estás seguro de que quieres quitar todos los filtros?");
-        if (confirmReset) {
-          titleSearchInput.value = '';
-          advancedSearchInput.value = '';
-          document.querySelectorAll('.filters select').forEach(select => {
-            select.value = 'Todos';
-          });
-          applyAllFilters();
+        if (matchesTitle && matchesAdvanced && matchesNivel && matchesTiempo && matchesPresupuesto && matchesIngrediente) {
+          card.style.display = 'block';
+          resultsFound = true;
+        } else {
+          card.style.display = 'none';
         }
       });
 
-      // Mostrar u ocultar barra de búsqueda avanzada
-      toggleSearchBtn.addEventListener('click', () => {
-        secondSearchBar.style.display = secondSearchBar.style.display === 'none' ? 'flex' : 'none';
-      });
-
-      // Aplicar filtros al interactuar con los elementos
-      titleSearchInput.addEventListener('input', applyAllFilters);
-      advancedSearchInput.addEventListener('input', applyAllFilters);
-      nivelFiltro.addEventListener('change', applyAllFilters);
-      tiempoFiltro.addEventListener('change', applyAllFilters);
-      presupuestoFiltro.addEventListener('change', applyAllFilters);
-      ingredienteFiltro.addEventListener('change', applyAllFilters);
+      noResultsMsg.style.display = resultsFound ? 'none' : 'block';
+    }
+    //quitar filtros
+    quitarFiltrosBtn.addEventListener('click', () => {
+      const confirmReset = confirm("¿Estás seguro de que quieres quitar todos los filtros?");
+      if (confirmReset) {
+        titleSearchInput.value = '';
+        advancedSearchInput.value = '';
+        document.querySelectorAll('.filters select').forEach(select => {
+          select.value = 'Todos';
+        });
+        applyAllFilters();
+      }
     });
-  </script>
+
+    toggleSearchBtn.addEventListener('click', () => {
+      secondSearchBar.style.display = secondSearchBar.style.display === 'none' ? 'flex' : 'none';
+    });
+
+    titleSearchInput.addEventListener('input', applyAllFilters);
+    advancedSearchInput.addEventListener('input', applyAllFilters);
+    nivelFiltro.addEventListener('change', applyAllFilters);
+    tiempoFiltro.addEventListener('change', applyAllFilters);
+    presupuestoFiltro.addEventListener('change', applyAllFilters);
+    ingredienteFiltro.addEventListener('change', applyAllFilters);
+
+    const currentPage = location.pathname.split("/").pop();
+    const sidebarLinks = document.querySelectorAll(".sidebar .menu a");
+    //pestana actual
+    sidebarLinks.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href === currentPage) {
+        const button = link.querySelector("button");
+        if (button) button.classList.add("activo");
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
